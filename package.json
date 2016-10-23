@@ -1,0 +1,21 @@
+{
+    "name": "Nodejs中文教程",
+    "version": "0.0.1",
+    "description": "源于菜鸟教程，nodejs教程",
+    "keywords": [
+        "nodejs、nodejs中文、nodejs教程"
+    ],
+    "homepage": "http://JSLite.io",
+    "author": "Jake <Jake_Laoyu@163.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JakeLaoyu/Nodejs-tutorial.git"
+    },
+    "licenses": "MIT",
+    "idoc": {
+        "theme": "handbook",
+        "md": [
+            "Nodejs教程.md"
+        ]
+    }
+}
