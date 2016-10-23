@@ -1,13 +1,3 @@
-# 简介
-本教程借鉴于[菜鸟教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)
-
-由于原文导航只有一级菜单，对于回顾翻阅，或者在写项目时查看示例很不方便，所以决定抄录下这篇文章。
-
-本人也是刚刚踏入Nodejs，水平有限，暂时知识抄录原文，未来会更新此教程，也非常欢迎广大热爱Nodejs的大神提交更新。
-
-<hr>
-<hr>
-
 # 前言
 ![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs.jpg)
 
