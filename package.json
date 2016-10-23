@@ -16,6 +16,7 @@
         "theme": "handbook",
         "md": [
             "Nodejs教程.md",
+            "安装配置.md",
             "关于.md"
         ]
     }
