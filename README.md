@@ -1,10 +1,10 @@
-## Nodejs中文教程
+## Nodejs中文教程,网址：<http://nodejs.jakeyu.top>
 
 使用[idoc](http://jaywcjlove.github.io/idoc/)文档生成工具，了解更多，请前往[idoc官网查看](http://jaywcjlove.github.io/idoc/)
 
 此教程借鉴、并且所有示例均来自于[菜鸟教程](http://www.runoob.com/nodejs/nodejs-tutorial.html)
 
-此教程网址：<http://nodejs.jakeyu.top>
+
 
 希望对想学习nodejs的朋友们有所帮助。
 
