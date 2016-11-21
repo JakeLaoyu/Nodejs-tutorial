@@ -1,5 +1,5 @@
 # 前言
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs.jpg)
 
 简单的说 Node.js 就是运行在服务端的 JavaScript。
 
@@ -59,7 +59,7 @@ Hello World!
 ## Gif 实例演示
 接下来我们通过 Gif 图为大家演示实例操作：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif1.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif1.gif)
 
 ===============================================================================
 ===============================================================================
@@ -120,11 +120,11 @@ node server.js
 Server running at http://127.0.0.1:8888/
 ~~~
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/cmdrun.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/cmdrun.jpg)
 
 接下来，打开浏览器访问 http://127.0.0.1:8888/，你会看到一个写着 "Hello World"的网页。
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-helloworld.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-helloworld.jpg)
 
 **分析Node.js 的 HTTP 服务器：**
 * 第一行请求（require）Node.js 自带的 http 模块，并且把它赋值给 http 变量。
@@ -133,7 +133,7 @@ Server running at http://127.0.0.1:8888/
 <hr>
 
 ## Gif 实例演示
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/node-hello.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/node-hello.gif)
 
 ===============================================================================
 ===============================================================================
@@ -724,7 +724,7 @@ $ node
 <hr>
 
 ## Gif 实例演示
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif2.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif2.gif)
 
 ===============================================================================
 ===============================================================================
@@ -825,7 +825,7 @@ Node.js 使用事件驱动模型，当web server接收到请求，就把它关�
 
 在事件驱动模型中，会生成一个主循环来监听事件，当检测到事件时触发回调函数。
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/event_loop.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/event_loop.jpg)
 
 整个事件驱动的流程就是这么实现的，非常简洁。有点类似于观察者模式，事件相当于一个主题(Subject)，而所有注册到这个事件上的处理函数相当于观察者(Observer)。
 
@@ -1665,7 +1665,7 @@ $ cat output.txt
 ## 管道流
 管道提供了一个输出流到输入流的机制。通常我们用于从一个流中获取数据并将数据传递到另外一个流中。
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/bVcla61.png)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/bVcla61.png)
 
 如上面的图片所示，我们把文件比作装水的桶，而水就是文件里的内容，我们用一根管子(pipe)连接两个桶使得水从一个桶流入另一个桶，这样就慢慢的实现了大文件的复制过程。
 
@@ -1851,7 +1851,7 @@ Node.js 的 require方法中的文件查找策略如下：
 
 由于Node.js中存在4类模块（原生模块和3种文件模块），尽管require方法极其简单，但是内部的加载却是十分复杂的，其加载优先级也各自不同。如下图所示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-require.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-require.jpg)
 
 ### 从文件模块缓存中加载
 尽管原生模块与文件模块的优先级不同，但是都不会优先于从文件模块的缓存中加载已经存在的模块。
@@ -2058,7 +2058,7 @@ Server has started.
 
 浏览器访问 http://127.0.0.1:8888/，输出结果如下：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/227B22AEE633.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/227B22AEE633.jpg)
 
 ===============================================================================
 ===============================================================================
@@ -3390,7 +3390,7 @@ http.createServer(function(req, res){
 
 在浏览器中访问http://localhost:3000/user?name=w3c&email=w3c@w3cschool.cc 然后查看返回结果:
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/w3cnodejs.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/w3cnodejs.jpg)
 
 <hr>
 
@@ -3706,7 +3706,7 @@ Hello World!
 
 #### Gif 实例演示
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif3.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif3.gif)
 
 ## DNS 模块
 Node.js DNS 模块用于解析域名。引入 DNS 模块语法格式如下：
@@ -3915,7 +3915,7 @@ Web服务器一般指网站服务器，是指驻留于因特网上某种类型�
 <hr>
 
 ## Web 应用架构
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/web_architecture.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/web_architecture.jpg)
 
 * Client - 客户端，一般指浏览器，浏览器可以通过 HTTP 协议向服务器请求数据。
 * Server - 服务端，一般指 Web 服务器，可以接收客户端请求，并向客户端发送响应数据。
@@ -3991,7 +3991,7 @@ Server running at http://127.0.0.1:8081/
 
 接着我们在浏览器中打开地址：http://127.0.0.1:8081/index.htm，显示如下图所示:
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs_sample1.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs_sample1.jpg)
 
 执行 server.js 的控制台输出信息如下：
 
@@ -4001,7 +4001,7 @@ Request for /index.htm received.     #  客户端请求信息
 ~~~
 
 ## Gif 实例演示
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif5.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif5.gif)
 
 ===============================================================================
 ===============================================================================
@@ -4073,7 +4073,7 @@ $ node express_demo.js
 
 在浏览器中访问 http://127.0.0.1:8081，结果如下图所示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs_sample.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs_sample.jpg)
 
 <hr>
 
@@ -4196,15 +4196,15 @@ $ node express_demo2.js
 
 在浏览器中访问 http://127.0.0.1:8081/list_user，结果如下图所示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/express1.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/express1.jpg)
 
 在浏览器中访问 http://127.0.0.1:8081/abcd，结果如下图所示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/express2.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/express2.jpg)
 
 在浏览器中访问 http://127.0.0.1:8081/abcdefg，结果如下图所示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/express3.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/express3.jpg)
 
 <hr>
 
@@ -4323,11 +4323,11 @@ node server.js
 
 浏览器访问 http://127.0.0.1:8081/index.htm，如图所示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/express5.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/express5.jpg)
 
 现在你可以向表单输入数据，并提交，如下演示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif6.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif6.gif)
 
 <hr>
 
@@ -4395,11 +4395,11 @@ $ node server.js
 
 浏览器访问 http://127.0.0.1:8081/index.htm，如图所示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/express5.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/express5.jpg)
 
 现在你可以向表单输入数据，并提交，如下演示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif7.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif7.gif)
 
 <hr>
 
@@ -4483,11 +4483,11 @@ $ node server.js
 
 浏览器访问 http://127.0.0.1:8081/index.htm，如图所示:
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/express6.jpg)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/express6.jpg)
 
 现在你可以向表单输入数据，并提交，如下演示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif8.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif8.gif)
 
 <hr>
 
@@ -4517,7 +4517,7 @@ $ node express_cookie.js
 
 现在你可以访问 http://127.0.0.1:8081 并查看终端信息的输出，如下演示：
 
-![](http://oe7v0q7wp.bkt.clouddn.com//nodejs%E6%95%99%E7%A8%8B/nodejs-gif9.gif)
+![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif9.gif)
 
 <hr>
 
