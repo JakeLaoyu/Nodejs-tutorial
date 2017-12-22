@@ -54,6 +54,81 @@
 
 </div>
 
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
+<script>
+    var pageToc = $('.page-toc')
+    var markdownBody = $('.markdown-body')
+    var titleId = markdownBody.find('[id]')
+    var pageTocTop = pageToc.offset().top
+    var pageTocHeight = document.body.clientHeight
+    var pageTocLeft = pageToc.offset().left
+
+    console.log('pageTocHeight: '+pageTocHeight);
+    
+    handleScroll()
+    $(window)
+    .on('scroll',handleScroll)
+    .on('resize',function(){
+        console.log('resize')
+        pageToc.css({
+            position:'static'
+        })
+        throttle(handleScroll,500,1000)
+    })
+    function handleScroll() {
+        var scrollTop = $(window).scrollTop()        
+        if (scrollTop >= pageTocTop-30) {
+            pageToc.css({
+                position:'fixed',
+                top: 0,
+                left: pageTocLeft,
+                'margin-top': 0
+            })
+        }else{
+            pageToc.css({
+                position:'static'
+            })
+        }
+
+        pageToc.find('a').removeClass('active')
+        var currentNav;
+        titleId.each(function(index,item){
+            if(scrollTop>=$(item).offset().top-20){
+                currentNav = item
+            }
+        })
+        var id = $(currentNav).attr('id')
+        id ? $('a[href="#'+id+'"]').addClass('active') : pageToc.find('a').first().addClass('active')
+    }
+
+    // 简单的节流函数
+    //fun 要执行的函数
+    //delay 延迟
+    //time  在time时间内必须执行一次
+    function throttle(fun, delay, time) {
+        var timeout,
+            startTime = new Date();
+
+        return function() {
+            var context = this,
+                args = arguments,
+                curTime = new Date();
+
+            clearTimeout(timeout);
+            // 如果达到了规定的触发时间间隔，触发 handler
+            if (curTime - startTime >= time) {
+                fun.apply(context, args);
+                startTime = curTime;
+                // 没达到触发间隔，重新设定定时器
+            } else {
+                timeout = setTimeout(function(){
+                    fun.apply(context, args);
+                }, delay);
+            }
+        };
+    };
+</script>
 </body>
+
 </html>

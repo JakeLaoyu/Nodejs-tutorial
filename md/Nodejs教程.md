@@ -61,8 +61,7 @@ Hello World!
 
 ![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif1.gif)
 
-===============================================================================
-===============================================================================
+---
 
 # 创建第一个应用
 如果我们使用PHP来编写后端的代码时，需要Apache 或者 Nginx 的HTTP 服务器，并配上 mod_php5 模块和php-cgi。
@@ -98,7 +97,7 @@ var http = require('http');
 
 http.createServer(function (request, response) {
 
-	// 发送 HTTP 头部 
+	// 发送 HTTP 头部
 	// HTTP 状态值: 200 : OK
 	// 内容类型: text/plain
 	response.writeHead(200, {'Content-Type': 'text/plain'});
@@ -135,8 +134,7 @@ Server running at http://127.0.0.1:8888/
 ## Gif 实例演示
 ![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/node-hello.gif)
 
-===============================================================================
-===============================================================================
+---
 
 # NPM 使用介绍
 NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：
@@ -199,7 +197,7 @@ npm install express -g   # 全局安装
 如果出现以下错误：
 
 ~~~
-npm err! Error: connect ECONNREFUSED 127.0.0.1:8087 
+npm err! Error: connect ECONNREFUSED 127.0.0.1:8087
 ~~~
 
 解决办法为：
@@ -497,14 +495,14 @@ save it as a dependency in the package.json file.
 
 Press ^C at any time to quit.
 name: (node_modules) runoob                   # 模块名
-version: (1.0.0) 
+version: (1.0.0)
 description: Node.js 测试模块(www.runoob.com)  # 描述
-entry point: (index.js) 
+entry point: (index.js)
 test command: make test
 git repository: https://github.com/runoob/runoob.git  # Github 地址
-keywords: 
-author: 
-license: (ISC) 
+keywords:
+author:
+license: (ISC)
 About to write to ……/node_modules/package.json:      # 生成地址
 
 {
@@ -586,8 +584,7 @@ $ cnpm install [name]
 
 更多信息可以查阅：<http://npm.taobao.org/>。
 
-===============================================================================
-===============================================================================
+---
 
 # REPL(交互式解释器)
 Node.js REPL(Read Eval Print Loop:交互式解释器) 表示一个电脑的环境，类似 Window 系统的终端或 Unix/Linux shell，我们可以在终端中输入命令，并接收系统的响应。
@@ -607,7 +604,7 @@ Node 的交互式解释器可以很好的调试 Javascript 代码。
 
 ~~~
 $ node
-> 
+>
 ~~~
 
 这时我们就可以在 > 后输入简单的表达式，并按下回车键来计算结果。
@@ -726,8 +723,7 @@ $ node
 ## Gif 实例演示
 ![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif2.gif)
 
-===============================================================================
-===============================================================================
+---
 
 # 回调函数
 Node.js 异步编程的直接体现就是回调。
@@ -801,8 +797,7 @@ $ node main.js
 
 因此，阻塞按是按顺序执行的，而非阻塞是不需要按顺序的，所以如果需要处理回调函数的参数，我们就需要写在回调函数内。
 
-===============================================================================
-===============================================================================
+---
 
 # 事件循环
 Node.js 是单进程单线程应用程序，但是通过事件和回调支持并发，所以性能非常高。
@@ -864,20 +859,20 @@ var eventEmitter = new events.EventEmitter();
 // 创建事件处理程序
 var connectHandler = function connected() {
    console.log('连接成功。');
-  
-   // 触发 data_received 事件 
+
+   // 触发 data_received 事件
    eventEmitter.emit('data_received');
 }
 
 // 绑定 connection 事件处理程序
 eventEmitter.on('connection', connectHandler);
- 
+
 // 使用匿名函数绑定 data_received 事件
 eventEmitter.on('data_received', function(){
    console.log('数据接收成功。');
 });
 
-// 触发 connection 事件 
+// 触发 connection 事件
 eventEmitter.emit('connection');
 
 console.log("程序执行完毕。");
@@ -938,8 +933,7 @@ Error: ENOENT, open 'input.txt'
 
 因为文件 input.txt 不存在，所以输出了错误信息。
 
-===============================================================================
-===============================================================================
+---
 
 # EventEmitter
 Node.js 所有的异步 I/O 操作在完成时都会发送一个事件到事件队列。
@@ -966,14 +960,14 @@ EventEmitter 对象如果在实例化时发生错误，会触发 'error' 事件�
 
 ~~~js
 //event.js 文件
-var EventEmitter = require('events').EventEmitter; 
-var event = new EventEmitter(); 
-event.on('some_event', function() { 
-	console.log('some_event 事件触发'); 
-}); 
-setTimeout(function() { 
-	event.emit('some_event'); 
-}, 1000); 
+var EventEmitter = require('events').EventEmitter;
+var event = new EventEmitter();
+event.on('some_event', function() {
+	console.log('some_event 事件触发');
+});
+setTimeout(function() {
+	event.emit('some_event');
+}, 1000);
 ~~~
 
 执行结果如下：
@@ -981,7 +975,7 @@ setTimeout(function() {
 运行这段代码，1 秒后控制台输出了 'some_event 事件触发'。其原理是 event 对象注册了事件 some_event 的一个监听器，然后我们通过 setTimeout 在 1000 毫秒以后向 event 对象发送事件 some_event，此时会调用some_event 的监听器。
 
 ~~~
-$ node event.js 
+$ node event.js
 some_event 事件触发
 ~~~
 
@@ -993,21 +987,21 @@ EventEmitter 的每个事件由一个事件名和若干个参数组成，事件�
 
 ~~~js
 //event.js 文件
-var events = require('events'); 
-var emitter = new events.EventEmitter(); 
-emitter.on('someEvent', function(arg1, arg2) { 
-	console.log('listener1', arg1, arg2); 
-}); 
-emitter.on('someEvent', function(arg1, arg2) { 
-	console.log('listener2', arg1, arg2); 
-}); 
-emitter.emit('someEvent', 'arg1 参数', 'arg2 参数'); 
+var events = require('events');
+var emitter = new events.EventEmitter();
+emitter.on('someEvent', function(arg1, arg2) {
+	console.log('listener1', arg1, arg2);
+});
+emitter.on('someEvent', function(arg1, arg2) {
+	console.log('listener2', arg1, arg2);
+});
+emitter.emit('someEvent', 'arg1 参数', 'arg2 参数');
 ~~~
 
 执行以上代码，运行的结果如下：
 
 ~~~
-$ node event.js 
+$ node event.js
 listener1 arg1 参数 arg2 参数
 listener2 arg1 参数 arg2 参数
 ~~~
@@ -1020,26 +1014,26 @@ EventEmitter 提供了多个属性，如 on 和 emit。on 函数用于绑定事�
 
 ### 方法
 
-| 方法  |  描述 |
-| ------ | ------ |
-| **addListener**(event, listener) | 为指定事件添加一个监听器到监听器数组的尾部。 |
-| **on**(event, listener) | 为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数。|
+| 方法                             | 描述                                                            |
+|:---------------------------------|:----------------------------------------------------------------|
+| **addListener**(event, listener) | 为指定事件添加一个监听器到监听器数组的尾部。                    |
+| **on**(event, listener)          | 为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数。 |
 ~~~js
 server.on('connection', function (stream) {
   console.log('someone connected!');
 });
-~~~ 
-| 方法  |  描述 |
-| ------ | ------ |
+~~~
+| 方法                      | 描述                                                                              |
+|:--------------------------|:----------------------------------------------------------------------------------|
 | **once**(event, listener) | 为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。 |
 ~~~js
 server.once('connection', function (stream) {
   console.log('Ah, we have our first user!');
 });
 ~~~
-| 方法  |  描述 |
-| ------ | ------ |
-| **removeListener**(event, listener) | 移除指定事件的某个监听器，监听器 必须是该事件已经注册过的监听器。|
+| 方法                                | 描述                                                              |
+|:------------------------------------|:------------------------------------------------------------------|
+| **removeListener**(event, listener) | 移除指定事件的某个监听器，监听器 必须是该事件已经注册过的监听器。 |
 ~~~js
 var callback = function(stream) {
   console.log('someone connected!');
@@ -1049,22 +1043,22 @@ server.on('connection', callback);
 server.removeListener('connection', callback);
 ~~~
 
-| 方法  |  描述 |
-| ------ | ------ |
-| **removeAllListeners**([event]) | 移除所有事件的所有监听器， 如果指定事件，则移除指定事件的所有监听器。|
-| **setMaxListeners**(n) | 默认情况下， EventEmitters 如果你添加的监听器超过 10 个就会输出警告信息。 setMaxListeners 函数用于提高监听器的默认限制的数量。 |
-| **listeners**(event) | 返回指定事件的监听器数组。 |
-| **emit**(event, [arg1], [arg2], [...]) | 按参数的顺序执行每个监听器，如果事件有注册监听返回 true，否则返回 false。 |
+| 方法                                   | 描述                                                                                                                           |
+|:---------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
+| **removeAllListeners**([event])        | 移除所有事件的所有监听器， 如果指定事件，则移除指定事件的所有监听器。                                                          |
+| **setMaxListeners**(n)                 | 默认情况下， EventEmitters 如果你添加的监听器超过 10 个就会输出警告信息。 setMaxListeners 函数用于提高监听器的默认限制的数量。 |
+| **listeners**(event)                   | 返回指定事件的监听器数组。                                                                                                     |
+| **emit**(event, [arg1], [arg2], [...]) | 按参数的顺序执行每个监听器，如果事件有注册监听返回 true，否则返回 false。                                                      |
 
 ### 类方法
-| 方法  |  描述 |
-| ------ | ------ |
+| 方法                          | 描述                       |
+|:------------------------------|:---------------------------|
 | listenerCount(emitter, event) | 返回指定事件的监听器数量。 |
 
 ### 事件
-| 事件  |  描述 |
-| ------ | ------ |
-| **newListener** | event - 字符串，事件名称;<br>listener - 处理事件函数 <br>该事件在添加新监听器时被触发。|
+| 事件               | 描述                                                                                                                                                        |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **newListener**    | event - 字符串，事件名称;<br>listener - 处理事件函数 <br>该事件在添加新监听器时被触发。                                                                     |
 | **removeListener** | event - 字符串，事件名称<br>listener - 处理事件函数<br>从指定监听器数组中删除一个监听器。需要注意的是，此操作将会改变处于被删监听器之后的那些监听器的索引。 |
 
 ### 实例
@@ -1086,7 +1080,7 @@ var listener2 = function listener2() {
   console.log('监听器 listener2 执行。');
 }
 
-// 绑定 connection 事件，处理函数为 listener1 
+// 绑定 connection 事件，处理函数为 listener1
 eventEmitter.addListener('connection', listener1);
 
 // 绑定 connection 事件，处理函数为 listener2
@@ -1095,7 +1089,7 @@ eventEmitter.on('connection', listener2);
 var eventListeners = require('events').EventEmitter.listenerCount(eventEmitter,'connection');
 console.log(eventListeners + " 个监听器监听连接事件。");
 
-// 处理 connection 事件 
+// 处理 connection 事件
 eventEmitter.emit('connection');
 
 // 移除监绑定的 listener1 函数
@@ -1134,27 +1128,27 @@ EventEmitter 定义了一个特殊的事件 error，它包含了错误的语义�
 我们一般要为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃。例如：
 
 ~~~js
-var events = require('events'); 
-var emitter = new events.EventEmitter(); 
-emitter.emit('error'); 
+var events = require('events');
+var emitter = new events.EventEmitter();
+emitter.emit('error');
 
 ~~~
 
 运行时会显示以下错误：
 
 ~~~js
-node.js:201 
-throw e; // process.nextTick error, or 'error' event on first tick 
-^ 
-Error: Uncaught, unspecified 'error' event. 
-at EventEmitter.emit (events.js:50:15) 
-at Object.<anonymous> (/home/byvoid/error.js:5:9) 
-at Module._compile (module.js:441:26) 
-at Object..js (module.js:459:10) 
-at Module.load (module.js:348:31) 
-at Function._load (module.js:308:12) 
-at Array.0 (module.js:479:10) 
-at EventEmitter._tickCallback (node.js:192:40) 
+node.js:201
+throw e; // process.nextTick error, or 'error' event on first tick
+^
+Error: Uncaught, unspecified 'error' event.
+at EventEmitter.emit (events.js:50:15)
+at Object.<anonymous> (/home/byvoid/error.js:5:9)
+at Module._compile (module.js:441:26)
+at Object..js (module.js:459:10)
+at Module.load (module.js:348:31)
+at Function._load (module.js:308:12)
+at Array.0 (module.js:479:10)
+at EventEmitter._tickCallback (node.js:192:40)
 ~~~
 
 <hr>
@@ -1167,8 +1161,7 @@ at EventEmitter._tickCallback (node.js:192:40)
 * 首先，具有某个实体功能的对象实现事件符合语义， 事件的监听和发射应该是一个对象的方法。
 * 其次 JavaScript 的对象机制是基于原型的，支持 部分多重继承，继承 EventEmitter 不会打乱对象原有的继承关系。
 
-===============================================================================
-===============================================================================
+---
 
 # Buffer(缓冲区)
 JavaScript 语言自身只有字符串数据类型，没有二进制数据类型。
@@ -1327,7 +1320,7 @@ Buffer.concat(list[, totalLength])
 参数描述如下：
 
 * **list** - 用于合并的 Buffer 对象数组列表。
-* **totalLength** - 指定合并后Buffer对象的总长度。 
+* **totalLength** - 指定合并后Buffer对象的总长度。
 
 ### 返回值
 
@@ -1490,67 +1483,66 @@ buffer length: 14
 ## 方法参考手册
 以下列出了 Node.js Buffer 模块常用的方法（注意有些方法在旧版本是没有的）：
 
-| 方法 | 描述 |
-|-----|------|
-| **new Buffer(size)**  | 分配一个新的 size 大小单位为8位字节的 buffer。 注意, size 必须小于 kMaxLength，否则，将会抛出异常 RangeError。 |
-| **new Buffer(buffer)**  | 拷贝参数 buffer 的数据到 Buffer 实例。 |
-| **new Buffer**(str[, encoding]) | 分配一个新的 buffer ，其中包含着传入的 str 字符串。 encoding 编码方式默认为 'utf8'。 |
-| **buf.length** | 返回这个 buffer 的 bytes 数。注意这未必是 buffer 里面内容的大小。length 是 buffer 对象所分配的内存数，它不会随着这个 buffer 对象内容的改变而改变。 |
-| **buf.write**(string[, offset[, length]][, encoding]) | 根据参数 offset 偏移量和指定的 encoding 编码方式，将参数 string 数据写入buffer。 offset 偏移量默认值是 0, encoding 编码方式默认是 utf8。 length 长度是将要写入的字符串的 bytes 大小。 返回 number 类型，表示写入了多少 8 位字节流。如果 buffer 没有足够的空间来放整个 string，它将只会只写入部分字符串。 length 默认是 buffer.length - offset。 这个方法不会出现写入部分字符。 |
-| **buf.writeUIntLE**(value, offset, byteLength[, noAssert]) | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算，noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。例如： |
+| 方法                                                       | 描述                                                                                                                                                                                                                                                                                                                                                                           |
+|:-----------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **new Buffer(size)**                                       | 分配一个新的 size 大小单位为8位字节的 buffer。 注意, size 必须小于 kMaxLength，否则，将会抛出异常 RangeError。                                                                                                                                                                                                                                                                 |
+| **new Buffer(buffer)**                                     | 拷贝参数 buffer 的数据到 Buffer 实例。                                                                                                                                                                                                                                                                                                                                         |
+| **new Buffer**(str[, encoding])                            | 分配一个新的 buffer ，其中包含着传入的 str 字符串。 encoding 编码方式默认为 'utf8'。                                                                                                                                                                                                                                                                                           |
+| **buf.length**                                             | 返回这个 buffer 的 bytes 数。注意这未必是 buffer 里面内容的大小。length 是 buffer 对象所分配的内存数，它不会随着这个 buffer 对象内容的改变而改变。                                                                                                                                                                                                                             |
+| **buf.write**(string[, offset[, length]][, encoding])      | 根据参数 offset 偏移量和指定的 encoding 编码方式，将参数 string 数据写入buffer。 offset 偏移量默认值是 0, encoding 编码方式默认是 utf8。 length 长度是将要写入的字符串的 bytes 大小。 返回 number 类型，表示写入了多少 8 位字节流。如果 buffer 没有足够的空间来放整个 string，它将只会只写入部分字符串。 length 默认是 buffer.length - offset。 这个方法不会出现写入部分字符。 |
+| **buf.writeUIntLE**(value, offset, byteLength[, noAssert]) | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算，noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。例如：                                                                                                                                                                                                                      |
 ~~~js
 var b = new Buffer(6);
 b.writeUIntBE(0x1234567890ab, 0, 6);
 // <Buffer 12 34 56 78 90 ab>
 ~~~
-| 方法 | 描述 |
-|-----|------|
-| **buf.writeUIntBE**(value, offset, byteLength[, noAssert]) | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算。noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。 |
-| **buf.writeIntLE**(value, offset, byteLength[, noAssert]) | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算。noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。 |
-| **buf.writeIntBE**(value, offset, byteLength[, noAssert]) | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算。noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。 |
-| **buf.readUIntLE**(offset, byteLength[, noAssert]) | 支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false。 |
-| **buf.readUIntBE**(offset, byteLength[, noAssert]) | 支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false |
-| **buf.readIntLE**(offset, byteLength[, noAssert]) | 支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false。 |
-| **buf.readIntBE**(offset, byteLength[, noAssert]) |支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false。|
-|**buf.toString**([encoding[, start[, end]]])|根据 encoding 参数（默认是 'utf8'）返回一个解码过的 string 类型。还会根据传入的参数 start (默认是 0) 和 end (默认是 buffer.length)作为取值范围。|
-|**buf.toJSON**()|将 Buffer 实例转换为 JSON 对象。|
-|**buf**[index]|获取或设置指定的字节。返回值代表一个字节，所以返回值的合法范围是十六进制0x00到0xFF 或者十进制0至 255。|
-|**buf.equals**(otherBuffer)|比较两个缓冲区是否相等，如果是返回 true，否则返回 false。|
-|**buf.compare**(otherBuffer)|比较两个 Buffer 对象，返回一个数字，表示 buf 在 otherBuffer 之前，之后或相同。|
-|**buf.copy**(targetBuffer[, targetStart[, sourceStart[, sourceEnd]]])|buffer 拷贝，源和目标可以相同。 targetStart 目标开始偏移和 sourceStart 源开始偏移默认都是 0。 sourceEnd 源结束位置偏移默认是源的长度 buffer.length 。|
-|**buf.slice**([start[, end]])|剪切 Buffer 对象，根据 start(默认是 0 ) 和 end (默认是 buffer.length ) 偏移和裁剪了索引。 负的索引是从 buffer 尾部开始计算的。|
-|**buf.readUInt8**(offset[, noAssert])|根据指定的偏移量，读取一个有符号 8 位整数。若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 如果这样 offset 可能会超出buffer 的末尾。默认是 false。|
-|**buf.readUInt16LE**(offset[, noAssert])|根据指定的偏移量，使用特殊的 endian 字节序格式读取一个有符号 16 位整数。若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。|
-|**buf.readUInt16BE**(offset[, noAssert])|根据指定的偏移量，使用特殊的 endian 字节序格式读取一个有符号 16 位整数。若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。|
-|**buf.readUInt32LE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian 字节序格式读取一个有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。|
-|**buf.readUInt32BE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian 字节序格式读取一个有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。|
-|**buf.readInt8**(offset[, noAssert])|根据指定的偏移量，读取一个 signed 8 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。|
-|**buf.readInt16LE**(offset[, noAssert])|根据指定的偏移量，使用特殊的 endian 格式读取一个 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。|
-|**buf.readInt16BE**(offset[, noAssert])|根据指定的偏移量，使用特殊的 endian 格式读取一个 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。|
-|**buf.readInt32LE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian 字节序格式读取一个 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。|
-|**buf.readInt32BE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian 字节序格式读取一个 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。|
-|**buf.readFloatLE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian 字节序格式读取一个 32 位浮点数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer的末尾。默认是 false。|
-|**buf.readFloatBE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian 字节序格式读取一个 32 位浮点数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer的末尾。默认是 false。|
-|**buf.readDoubleLE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian字节序格式读取一个 64 位double。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。|
-|**buf.readDoubleBE**(offset[, noAssert])|根据指定的偏移量，使用指定的 endian字节序格式读取一个 64 位double。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。|
-|**buf.writeUInt8**(value, offset[, noAssert])|根据传入的 offset 偏移量将 value 写入 buffer。注意：value 必须是一个合法的有符号 8 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则不要使用。默认是 false。|
-|**buf.writeUInt16LE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的有符号 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeUInt16BE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的有符号 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeUInt32LE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入buffer。注意：value 必须是一个合法的有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着value 可能过大，或者offset可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeUInt32BE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入buffer。注意：value 必须是一个合法的有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着value 可能过大，或者offset可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeInt8**(value, offset[, noAssert])||
-|**buf.writeInt16LE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false 。|
-|**buf.writeInt16BE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false 。|
-|**buf.writeInt32LE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeInt32BE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeFloatLE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer 。注意：当 value 不是一个 32 位浮点数类型的值时，结果将是不确定的。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeFloatBE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer 。注意：当 value 不是一个 32 位浮点数类型的值时，结果将是不确定的。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeDoubleLE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个有效的 64 位double 类型的值。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成value被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.writeDoubleBE**(value, offset[, noAssert])|根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个有效的 64 位double 类型的值。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成value被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。|
-|**buf.fill**(value[, offset][, end])|使用指定的 value 来填充这个 buffer。如果没有指定 offset (默认是 0) 并且 end (默认是 buffer.length) ，将会填充整个buffer。|
+| 方法                                                                  | 描述                                                                                                                                                                                                                                                                                                                                                  |
+|:----------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **buf.writeUIntBE**(value, offset, byteLength[, noAssert])            | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算。noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。                                                                                                                                                                                                   |
+| **buf.writeIntLE**(value, offset, byteLength[, noAssert])             | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算。noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。                                                                                                                                                                                                   |
+| **buf.writeIntBE**(value, offset, byteLength[, noAssert])             | 将value 写入到 buffer 里， 它由offset 和 byteLength 决定，支持 48 位计算。noAssert 值为 true 时，不再验证 value 和 offset 的有效性。 默认是 false。                                                                                                                                                                                                   |
+| **buf.readUIntLE**(offset, byteLength[, noAssert])                    | 支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false。                                                                                                                                                                                                                                               |
+| **buf.readUIntBE**(offset, byteLength[, noAssert])                    | 支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false                                                                                                                                                                                                                                                 |
+| **buf.readIntLE**(offset, byteLength[, noAssert])                     | 支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false。                                                                                                                                                                                                                                               |
+| **buf.readIntBE**(offset, byteLength[, noAssert])                     | 支持读取 48 位以下的数字。noAssert 值为 true 时， offset 不再验证是否超过 buffer 的长度，默认为 false。                                                                                                                                                                                                                                               |
+| **buf.toString**([encoding[, start[, end]]])                          | 根据 encoding 参数（默认是 'utf8'）返回一个解码过的 string 类型。还会根据传入的参数 start (默认是 0) 和 end (默认是 buffer.length)作为取值范围。                                                                                                                                                                                                      |
+| **buf.toJSON**()                                                      | 将 Buffer 实例转换为 JSON 对象。                                                                                                                                                                                                                                                                                                                      |
+| **buf**[index]                                                        | 获取或设置指定的字节。返回值代表一个字节，所以返回值的合法范围是十六进制0x00到0xFF 或者十进制0至 255。                                                                                                                                                                                                                                                |
+| **buf.equals**(otherBuffer)                                           | 比较两个缓冲区是否相等，如果是返回 true，否则返回 false。                                                                                                                                                                                                                                                                                             |
+| **buf.compare**(otherBuffer)                                          | 比较两个 Buffer 对象，返回一个数字，表示 buf 在 otherBuffer 之前，之后或相同。                                                                                                                                                                                                                                                                        |
+| **buf.copy**(targetBuffer[, targetStart[, sourceStart[, sourceEnd]]]) | buffer 拷贝，源和目标可以相同。 targetStart 目标开始偏移和 sourceStart 源开始偏移默认都是 0。 sourceEnd 源结束位置偏移默认是源的长度 buffer.length 。                                                                                                                                                                                                 |
+| **buf.slice**([start[, end]])                                         | 剪切 Buffer 对象，根据 start(默认是 0 ) 和 end (默认是 buffer.length ) 偏移和裁剪了索引。 负的索引是从 buffer 尾部开始计算的。                                                                                                                                                                                                                        |
+| **buf.readUInt8**(offset[, noAssert])                                 | 根据指定的偏移量，读取一个有符号 8 位整数。若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 如果这样 offset 可能会超出buffer 的末尾。默认是 false。                                                                                                                                                                                             |
+| **buf.readUInt16LE**(offset[, noAssert])                              | 根据指定的偏移量，使用特殊的 endian 字节序格式读取一个有符号 16 位整数。若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。                                                                                                                                                               |
+| **buf.readUInt16BE**(offset[, noAssert])                              | 根据指定的偏移量，使用特殊的 endian 字节序格式读取一个有符号 16 位整数。若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。                                                                                                                                                               |
+| **buf.readUInt32LE**(offset[, noAssert])                              | 根据指定的偏移量，使用指定的 endian 字节序格式读取一个有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。                                                                                                                                                               |
+| **buf.readUInt32BE**(offset[, noAssert])                              | 根据指定的偏移量，使用指定的 endian 字节序格式读取一个有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。                                                                                                                                                               |
+| **buf.readInt8**(offset[, noAssert])                                  | 根据指定的偏移量，读取一个 signed 8 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。                                                                                                                                                                                          |
+| **buf.readInt16LE**(offset[, noAssert])                               | 根据指定的偏移量，使用特殊的 endian 格式读取一个 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。                                                                                                                                                                   |
+| **buf.readInt16BE**(offset[, noAssert])                               | 根据指定的偏移量，使用特殊的 endian 格式读取一个 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出 buffer 的末尾。默认是 false。                                                                                                                                                                   |
+| **buf.readInt32LE**(offset[, noAssert])                               | 根据指定的偏移量，使用指定的 endian 字节序格式读取一个 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。                                                                                                                                                              |
+| **buf.readInt32BE**(offset[, noAssert])                               | 根据指定的偏移量，使用指定的 endian 字节序格式读取一个 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。                                                                                                                                                              |
+| **buf.readFloatLE**(offset[, noAssert])                               | 根据指定的偏移量，使用指定的 endian 字节序格式读取一个 32 位浮点数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer的末尾。默认是 false。                                                                                                                                                                    |
+| **buf.readFloatBE**(offset[, noAssert])                               | 根据指定的偏移量，使用指定的 endian 字节序格式读取一个 32 位浮点数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer的末尾。默认是 false。                                                                                                                                                                    |
+| **buf.readDoubleLE**(offset[, noAssert])                              | 根据指定的偏移量，使用指定的 endian字节序格式读取一个 64 位double。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。                                                                                                                                                                    |
+| **buf.readDoubleBE**(offset[, noAssert])                              | 根据指定的偏移量，使用指定的 endian字节序格式读取一个 64 位double。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 offset 可能会超出buffer 的末尾。默认是 false。                                                                                                                                                                    |
+| **buf.writeUInt8**(value, offset[, noAssert])                         | 根据传入的 offset 偏移量将 value 写入 buffer。注意：value 必须是一个合法的有符号 8 位整数。 若参数 noAssert 为 true 将不会验证 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则不要使用。默认是 false。                                                      |
+| **buf.writeUInt16LE**(value, offset[, noAssert])                      | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的有符号 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                      |
+| **buf.writeUInt16BE**(value, offset[, noAssert])                      | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的有符号 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                      |
+| **buf.writeUInt32LE**(value, offset[, noAssert])                      | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入buffer。注意：value 必须是一个合法的有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着value 可能过大，或者offset可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                          |
+| **buf.writeUInt32BE**(value, offset[, noAssert])                      | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入buffer。注意：value 必须是一个合法的有符号 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着value 可能过大，或者offset可能会超出buffer的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                          |
+| **buf.writeInt8**(value, offset[, noAssert])                          |                                                                                                                                                                                                                                                                                                                                                       |
+| **buf.writeInt16LE**(value, offset[, noAssert])                       | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false 。                  |
+| **buf.writeInt16BE**(value, offset[, noAssert])                       | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 16 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false 。                  |
+| **buf.writeInt32LE**(value, offset[, noAssert])                       | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                   |
+| **buf.writeInt32BE**(value, offset[, noAssert])                       | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个合法的 signed 32 位整数。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                   |
+| **buf.writeFloatLE**(value, offset[, noAssert])                       | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer 。注意：当 value 不是一个 32 位浮点数类型的值时，结果将是不确定的。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。 |
+| **buf.writeFloatBE**(value, offset[, noAssert])                       | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer 。注意：当 value 不是一个 32 位浮点数类型的值时，结果将是不确定的。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value可能过大，或者 offset 可能会超出 buffer 的末尾从而造成 value 被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。 |
+| **buf.writeDoubleLE**(value, offset[, noAssert])                      | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个有效的 64 位double 类型的值。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成value被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                 |
+| **buf.writeDoubleBE**(value, offset[, noAssert])                      | 根据传入的 offset 偏移量和指定的 endian 格式将 value 写入 buffer。注意：value 必须是一个有效的 64 位double 类型的值。 若参数 noAssert 为 true 将不会验证 value 和 offset 偏移量参数。 这意味着 value 可能过大，或者 offset 可能会超出 buffer 的末尾从而造成value被丢弃。 除非你对这个参数非常有把握，否则尽量不要使用。默认是 false。                 |
+| **buf.fill**(value[, offset][, end])                                  | 使用指定的 value 来填充这个 buffer。如果没有指定 offset (默认是 0) 并且 end (默认是 buffer.length) ，将会填充整个buffer。                                                                                                                                                                                                                             |
 
-===============================================================================
-===============================================================================
+---
 
 # Stream(流)
 Stream 是一个抽象接口，Node 中有很多对象实现了这个接口。例如，对http 服务器发起请求的request 对象就是一个 Stream，还有stdout（标准输出）。
@@ -1648,7 +1640,7 @@ console.log("程序执行完毕");
 以上程序会将 data 变量的数据写入到 output.txt 文件中。代码执行结果如下：
 
 ~~~
-$ node main.js 
+$ node main.js
 程序执行完毕
 写入完成。
 ~~~
@@ -1656,7 +1648,7 @@ $ node main.js
 查看 output.txt 文件的内容：
 
 ~~~
-$ cat output.txt 
+$ cat output.txt
 菜鸟教程官网地址：www.runoob.com
 ~~~
 
@@ -1699,14 +1691,14 @@ console.log("程序执行完毕");
 代码执行结果如下：
 
 ~~~
-$ node main.js 
+$ node main.js
 程序执行完毕
 ~~~
 
 查看 output.txt 文件的内容：
 
 ~~~
-$ cat output.txt 
+$ cat output.txt
 菜鸟教程官网地址：www.runoob.com
 管道流操作实例
 ~~~
@@ -1728,14 +1720,14 @@ var zlib = require('zlib');
 fs.createReadStream('input.txt')
   .pipe(zlib.createGzip())
   .pipe(fs.createWriteStream('input.txt.gz'));
-  
+
 console.log("文件压缩完成。");
 ~~~
 
 代码执行结果如下：
 
 ~~~
-$ node compress.js 
+$ node compress.js
 文件压缩完成。
 ~~~
 
@@ -1751,19 +1743,18 @@ var zlib = require('zlib');
 fs.createReadStream('input.txt.gz')
   .pipe(zlib.createGunzip())
   .pipe(fs.createWriteStream('input.txt'));
-  
+
 console.log("文件解压完成。");
 ~~~
 
 代码执行结果如下：
 
 ~~~
-$ node decompress.js 
+$ node decompress.js
 文件解压完成。
 ~~~
 
-===============================================================================
-===============================================================================
+---
 
 # 模块系统
 为了让Node.js的文件可以相互调用，Node.js提供了一个简单的模块系统。
@@ -1805,27 +1796,27 @@ module.exports = function() {
 例如:
 
 ~~~js
-//hello.js 
-function Hello() { 
-	var name; 
-	this.setName = function(thyName) { 
-		name = thyName; 
-	}; 
-	this.sayHello = function() { 
-		console.log('Hello ' + name); 
-	}; 
-}; 
+//hello.js
+function Hello() {
+	var name;
+	this.setName = function(thyName) {
+		name = thyName;
+	};
+	this.sayHello = function() {
+		console.log('Hello ' + name);
+	};
+};
 module.exports = Hello;
 ~~~
 
 这样就可以直接获得这个对象了：
 
 ~~~js
-//main.js 
-var Hello = require('./hello'); 
-hello = new Hello(); 
-hello.setName('BYVoid'); 
-hello.sayHello(); 
+//main.js
+var Hello = require('./hello');
+hello = new Hello();
+hello.setName('BYVoid');
+hello.sayHello();
 ~~~
 
 模块接口的唯一变化是使用 module.exports = Hello 代替了exports.world = function(){}。 在外部引用该模块时，其接口对象就是要输出的 Hello 对象本身，而不是原先的 exports。
@@ -1869,8 +1860,7 @@ require方法接受以下几种参数的传递：
 * /pathtomodule/mod，绝对路径的文件模块。
 * mod，非原生模块的文件模块。
 
-===============================================================================
-===============================================================================
+---
 
 # 函数
 在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。
@@ -1943,8 +1933,7 @@ function onRequest(request, response) {
 http.createServer(onRequest).listen(8888);
 ~~~
 
-===============================================================================
-===============================================================================
+---
 
 # 路由
 我们要为路由提供请求的URL和其他需要的GET及POST参数，随后路由需要根据这些数据来执行相应的代码。
@@ -2060,8 +2049,7 @@ Server has started.
 
 ![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/227B22AEE633.jpg)
 
-===============================================================================
-===============================================================================
+---
 
 # 全局对象
 JavaScript 中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即全局变量。
@@ -2215,17 +2203,17 @@ Node.js 沿用了这个标准，提供与习惯行为一致的 console 对象，
 ### console 方法
 以下为 console 对象的方法:
 
-|方法|描述|
-|----|----|
-|**console.log**([data][, ...])|向标准输出流打印字符并以换行符结束。该方法接收若干 个参数，如果只有一个参数，则输出这个参数的字符串形式。如果有多个参数，则 以类似于C 语言 printf() 命令的格式输出。|
-|**console.info**([data][, ...])|P该命令的作用是返回信息性消息，这个命令与console.log差别并不大，除了在chrome中只会输出文字外，其余的会显示一个蓝色的惊叹号。|
-|**console.error**([data][, ...])|输出错误消息的。控制台在出现错误时会显示是红色的叉子。|
-|**console.warn**([data][, ...])|输出警告消息。控制台出现有黄色的惊叹号。|
-|**console.dir**(obj[, options])|用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。|
-|**console.time**(label)|输出时间，表示计时开始。|
-|**console.timeEnd**(label)|结束时间，表示计时结束。|
-|**console.trace**(message[, ...])|当前执行的代码在堆栈中的调用路径，这个测试函数运行很有帮助，只要给想测试的函数里面加入 console.trace 就行了。|
-|**console.assert**(value[, message][, ...])|用于判断某个表达式或变量是否为真，接手两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。|
+| 方法                                        | 描述                                                                                                                                                                 |
+|:--------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **console.log**([data][, ...])              | 向标准输出流打印字符并以换行符结束。该方法接收若干 个参数，如果只有一个参数，则输出这个参数的字符串形式。如果有多个参数，则 以类似于C 语言 printf() 命令的格式输出。 |
+| **console.info**([data][, ...])             | P该命令的作用是返回信息性消息，这个命令与console.log差别并不大，除了在chrome中只会输出文字外，其余的会显示一个蓝色的惊叹号。                                         |
+| **console.error**([data][, ...])            | 输出错误消息的。控制台在出现错误时会显示是红色的叉子。                                                                                                               |
+| **console.warn**([data][, ...])             | 输出警告消息。控制台出现有黄色的惊叹号。                                                                                                                             |
+| **console.dir**(obj[, options])             | 用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。                                                                                                    |
+| **console.time**(label)                     | 输出时间，表示计时开始。                                                                                                                                             |
+| **console.timeEnd**(label)                  | 结束时间，表示计时结束。                                                                                                                                             |
+| **console.trace**(message[, ...])           | 当前执行的代码在堆栈中的调用路径，这个测试函数运行很有帮助，只要给想测试的函数里面加入 console.trace 就行了。                                                        |
+| **console.assert**(value[, message][, ...]) | 用于判断某个表达式或变量是否为真，接手两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。            |
 
 console.log()：向标准输出流打印字符并以换行符结束。
 
@@ -2234,17 +2222,17 @@ console.log 接受若干 个参数，如果只有一个参数，则输出这个�
 第一个参数是一个字符串，如果没有 参数，只打印一个换行。
 
 ~~~js
-console.log('Hello world'); 
-console.log('byvoid%diovyb'); 
-console.log('byvoid%diovyb', 1991); 
+console.log('Hello world');
+console.log('byvoid%diovyb');
+console.log('byvoid%diovyb', 1991);
 ~~~
 
 运行结果为：
 
 ~~~
-Hello world 
-byvoid%diovyb 
-byvoid1991iovyb 
+Hello world
+byvoid%diovyb
+byvoid1991iovyb
 ~~~
 
 * console.error()：与console.log() 用法相同，只是向标准错误流输出。
@@ -2257,13 +2245,13 @@ console.trace();
 运行结果为：
 
 ~~~
-Trace: 
-at Object.<anonymous> (/home/byvoid/consoletrace.js:1:71) 
-at Module._compile (module.js:441:26) 
-at Object..js (module.js:459:10) 
-at Module.load (module.js:348:31) 
-at Function._load (module.js:308:12) 
-at Array.0 (module.js:479:10) 
+Trace:
+at Object.<anonymous> (/home/byvoid/consoletrace.js:1:71)
+at Module._compile (module.js:441:26)
+at Object..js (module.js:459:10)
+at Module.load (module.js:348:31)
+at Function._load (module.js:308:12)
+at Array.0 (module.js:479:10)
 at EventEmitter._tickCallback (node.js:192:40)
 ~~~
 
@@ -2279,7 +2267,7 @@ console.log("计数: %d", counter);
 console.time("获取数据");
 //
 // 执行一些代码
-// 
+//
 console.timeEnd('获取数据');
 
 console.info("程序执行完毕。")
@@ -2302,12 +2290,12 @@ process 是一个全局变量，即 global 对象的属性。
 
 它用于描述当前Node.js 进程状态的对象，提供了一个与操作系统的简单接口。通常在你写本地命令行程序的时候，少不了要 和它打交道。下面将会介绍 process 对象的一些最常用的成员方法。
 
-|事件|描述|
-|----|-----|
-|**exit**|当进程准备退出时触发|
-|**beforeExit**|当 node 清空事件循环，并且没有其他安排时触发这个事件。通常来说，当没有进程安排时 node 退出，但是 'beforeExit' 的监听器可以异步调用，这样 node 就会继续执行。|
-|**uncaughtException**|当一个异常冒泡回到事件循环，触发这个事件。如果给异常添加了监视器，默认的操作（打印堆栈跟踪信息并退出）就不会发生。|
-|**Signal 事件**|当进程接收到信号时就触发。信号列表详见标准的 POSIX 信号名，如 SIGINT、SIGUSR1 等。|
+| 事件                  | 描述                                                                                                                                                         |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **exit**              | 当进程准备退出时触发                                                                                                                                         |
+| **beforeExit**        | 当 node 清空事件循环，并且没有其他安排时触发这个事件。通常来说，当没有进程安排时 node 退出，但是 'beforeExit' 的监听器可以异步调用，这样 node 就会继续执行。 |
+| **uncaughtException** | 当一个异常冒泡回到事件循环，触发这个事件。如果给异常添加了监视器，默认的操作（打印堆栈跟踪信息并退出）就不会发生。                                           |
+| **Signal 事件**       | 当进程接收到信号时就触发。信号列表详见标准的 POSIX 信号名，如 SIGINT、SIGUSR1 等。                                                                           |
 
 ### 实例
 创建文件 main.js ，代码如下所示：
@@ -2319,7 +2307,7 @@ process.on('exit', function(code) {
   setTimeout(function() {
     console.log("该代码不会执行");
   }, 0);
-  
+
   console.log('退出码为:', code);
 });
 console.log("程序执行结束");
@@ -2336,41 +2324,41 @@ $ node main.js
 ### 退出状态码
 退出状态码如下所示：
 
-|名称|描述|
-|---|---|
-|**Uncaught Fatal Exception**|有未捕获异常，并且没有被域或 uncaughtException 处理函数处理。|
-|**Unused**|保留|
-|**Internal JavaScript Parse Error**|JavaScript的源码启动 Node 进程时引起解析错误。非常罕见，仅会在开发 Node 时才会有。|
-|**nternal JavaScript Evaluation Failure**|JavaScript 的源码启动 Node 进程，评估时返回函数失败。非常罕见，仅会在开发 Node 时才会有。|
-|**Fatal Error**|V8 里致命的不可恢复的错误。通常会打印到 stderr ，内容为： FATAL ERROR|
-|**Non-function Internal Exception Handler**|未捕获异常，内部异常处理函数不知为何设置为on-function，并且不能被调用。|
-|**Internal Exception Handler Run-Time Failure**|未捕获的异常， 并且异常处理函数处理时自己抛出了异常。例如，如果 process.on('uncaughtException') 或 domain.on('error') 抛出了异常。|
-|**Invalid Argument**|可能是给了未知的参数，或者给的参数没有值。|
-|**Internal JavaScript Run-Time Failure**|JavaScript的源码启动 Node 进程时抛出错误，非常罕见，仅会在开发 Node 时才会有。|
-|**Invalid Debug Argument **|设置了参数--debug 和/或 --debug-brk，但是选择了错误端口。|
-|**Signal Exits**|如果 Node 接收到致命信号，比如SIGKILL 或 SIGHUP，那么退出代码就是128 加信号代码。这是标准的 Unix 做法，退出信号代码放在高位。|
+| 名称                                            | 描述                                                                                                                               |
+|:------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
+| **Uncaught Fatal Exception**                    | 有未捕获异常，并且没有被域或 uncaughtException 处理函数处理。                                                                      |
+| **Unused**                                      | 保留                                                                                                                               |
+| **Internal JavaScript Parse Error**             | JavaScript的源码启动 Node 进程时引起解析错误。非常罕见，仅会在开发 Node 时才会有。                                                 |
+| **nternal JavaScript Evaluation Failure**       | JavaScript 的源码启动 Node 进程，评估时返回函数失败。非常罕见，仅会在开发 Node 时才会有。                                          |
+| **Fatal Error**                                 | V8 里致命的不可恢复的错误。通常会打印到 stderr ，内容为： FATAL ERROR                                                              |
+| **Non-function Internal Exception Handler**     | 未捕获异常，内部异常处理函数不知为何设置为on-function，并且不能被调用。                                                            |
+| **Internal Exception Handler Run-Time Failure** | 未捕获的异常， 并且异常处理函数处理时自己抛出了异常。例如，如果 process.on('uncaughtException') 或 domain.on('error') 抛出了异常。 |
+| **Invalid Argument**                            | 可能是给了未知的参数，或者给的参数没有值。                                                                                         |
+| **Internal JavaScript Run-Time Failure**        | JavaScript的源码启动 Node 进程时抛出错误，非常罕见，仅会在开发 Node 时才会有。                                                     |
+| **Invalid Debug Argument **                     | 设置了参数--debug 和/或 --debug-brk，但是选择了错误端口。                                                                          |
+| **Signal Exits**                                | 如果 Node 接收到致命信号，比如SIGKILL 或 SIGHUP，那么退出代码就是128 加信号代码。这是标准的 Unix 做法，退出信号代码放在高位。      |
 
 ## Process 属性
 Process 提供了很多有用的属性，便于我们更好的控制系统的交互：
 
-|属性|描述|
-|---|---|
-|**stdout**|标准输出流。|
-|**stderr**|标准错误流。|
-|**stdin**|标准输入流。|
-|**argv**|argv 属性返回一个数组，由命令行执行脚本时的各个参数组成。它的第一个成员总是node，第二个成员是脚本文件名，其余成员是脚本文件的参数。|
-|**execPath**|返回执行当前脚本的 Node 二进制文件的绝对路径。|
-|**execArgv**|返回一个数组，成员是命令行下执行脚本时，在Node可执行文件与脚本文件之间的命令行参数。|
-|**env**|返回一个对象，成员为当前 shell 的环境变量|
-|**exitCode**|进程退出时的代码，如果进程优通过 process.exit() 退出，不需要指定退出码。|
-|**version**|Node 的版本，比如v0.10.18。|
-|**versions**|一个属性，包含了 node 的版本和依赖.|
-|**config**|一个包含用来编译当前 node 执行文件的 javascript 配置选项的对象。它与运行 ./configure 脚本生成的 "config.gypi" 文件相同。|
-|**pid**|当前进程的进程号。|
-|**title**|进程名，默认值为"node"，可以自定义该值。|
-|**arch**|当前 CPU 的架构：'arm'、'ia32' 或者 'x64'。|
-|**platform**|运行程序所在的平台系统 'darwin', 'freebsd', 'linux', 'sunos' 或 'win32'|
-|**mainModule**|require.main 的备选方法。不同点，如果主模块在运行时改变，require.main可能会继续返回老的模块。可以认为，这两者引用了同一个模块。|
+| 属性           | 描述                                                                                                                                |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------|
+| **stdout**     | 标准输出流。                                                                                                                        |
+| **stderr**     | 标准错误流。                                                                                                                        |
+| **stdin**      | 标准输入流。                                                                                                                        |
+| **argv**       | argv 属性返回一个数组，由命令行执行脚本时的各个参数组成。它的第一个成员总是node，第二个成员是脚本文件名，其余成员是脚本文件的参数。 |
+| **execPath**   | 返回执行当前脚本的 Node 二进制文件的绝对路径。                                                                                      |
+| **execArgv**   | 返回一个数组，成员是命令行下执行脚本时，在Node可执行文件与脚本文件之间的命令行参数。                                                |
+| **env**        | 返回一个对象，成员为当前 shell 的环境变量                                                                                           |
+| **exitCode**   | 进程退出时的代码，如果进程优通过 process.exit() 退出，不需要指定退出码。                                                            |
+| **version**    | Node 的版本，比如v0.10.18。                                                                                                         |
+| **versions**   | 一个属性，包含了 node 的版本和依赖.                                                                                                 |
+| **config**     | 一个包含用来编译当前 node 执行文件的 javascript 配置选项的对象。它与运行 ./configure 脚本生成的 "config.gypi" 文件相同。            |
+| **pid**        | 当前进程的进程号。                                                                                                                  |
+| **title**      | 进程名，默认值为"node"，可以自定义该值。                                                                                            |
+| **arch**       | 当前 CPU 的架构：'arm'、'ia32' 或者 'x64'。                                                                                         |
+| **platform**   | 运行程序所在的平台系统 'darwin', 'freebsd', 'linux', 'sunos' 或 'win32'                                                             |
+| **mainModule** | require.main 的备选方法。不同点，如果主模块在运行时改变，require.main可能会继续返回老的模块。可以认为，这两者引用了同一个模块。     |
 
 ### 实例
 创建文件 main.js ，代码如下所示：
@@ -2406,25 +2394,25 @@ darwin
 ### 方法参考手册
 Process 提供了很多有用的方法，便于我们更好的控制系统的交互：
 
-|方法|描述|
-|---|---|
-|**abort()**|这将导致 node 触发 abort 事件。会让 node 退出并生成一个核心文件。|
-|**chdir(directory)**|改变当前工作进程的目录，如果操作失败抛出异常。|
-|**cwd()**|返回当前进程的工作目录|
-|**exit([code])**|使用指定的 code 结束进程。如果忽略，将会使用 code 0。|
-|**getgid()**|获取进程的群组标识（参见 getgid(2)）。获取到得时群组的数字 id，而不是名字。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。|
-|**setgid(id)**|设置进程的群组标识（参见 setgid(2)）。可以接收数字 ID 或者群组名。如果指定了群组名，会阻塞等待解析为数字 ID 。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。|
-|**getuid()**|获取进程的用户标识(参见 getuid(2))。这是数字的用户 id，不是用户名。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。|
-|**setuid(id)**|设置进程的用户标识（参见setuid(2)）。接收数字 ID或字符串名字。果指定了群组名，会阻塞等待解析为数字 ID 。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。|
-|**getgroups()**|返回进程的群组 iD 数组。POSIX 系统没有保证一定有，但是 node.js 保证有。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。|
-|**setgroups(groups)**|设置进程的群组 ID。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。|
-|**initgroups(user, extra_group)**|读取 /etc/group ，并初始化群组访问列表，使用成员所在的所有群组。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。|
-|**kill(pid[, signal])**|发送信号给进程. pid 是进程id，并且 signal 是发送的信号的字符串描述。信号名是字符串，比如 'SIGINT' 或 'SIGHUP'。如果忽略，信号会是 'SIGTERM'。|
-|**memoryUsage()**|返回一个对象，描述了 Node 进程所用的内存状况，单位为字节。|
-|**nextTick(callback)**|一旦当前事件循环结束，调用回到函数。|
-|**umask([mask])**|设置或读取进程文件的掩码。子进程从父进程继承掩码。如果mask 参数有效，返回旧的掩码。否则，返回当前掩码。|
-|**uptime()**|返回 Node 已经运行的秒数。|
-|**hrtime()**|返回当前进程的高分辨时间，形式为 [seconds, nanoseconds]数组。它是相对于过去的任意事件。该值与日期无关，因此不受时钟漂移的影响。主要用途是可以通过精确的时间间隔，来衡量程序的性能。<br>你可以将之前的结果传递给当前的 process.hrtime() ，会返回两者间的时间差，用来基准和测量时间间隔。|
+| 方法                              | 描述                                                                                                                                                                                                                                                                                    |
+|:----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **abort()**                       | 这将导致 node 触发 abort 事件。会让 node 退出并生成一个核心文件。                                                                                                                                                                                                                       |
+| **chdir(directory)**              | 改变当前工作进程的目录，如果操作失败抛出异常。                                                                                                                                                                                                                                          |
+| **cwd()**                         | 返回当前进程的工作目录                                                                                                                                                                                                                                                                  |
+| **exit([code])**                  | 使用指定的 code 结束进程。如果忽略，将会使用 code 0。                                                                                                                                                                                                                                   |
+| **getgid()**                      | 获取进程的群组标识（参见 getgid(2)）。获取到得时群组的数字 id，而不是名字。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。                                                                                                                                    |
+| **setgid(id)**                    | 设置进程的群组标识（参见 setgid(2)）。可以接收数字 ID 或者群组名。如果指定了群组名，会阻塞等待解析为数字 ID 。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。                                                                                                 |
+| **getuid()**                      | 获取进程的用户标识(参见 getuid(2))。这是数字的用户 id，不是用户名。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。                                                                                                                                            |
+| **setuid(id)**                    | 设置进程的用户标识（参见setuid(2)）。接收数字 ID或字符串名字。果指定了群组名，会阻塞等待解析为数字 ID 。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。                                                                                                       |
+| **getgroups()**                   | 返回进程的群组 iD 数组。POSIX 系统没有保证一定有，但是 node.js 保证有。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。                                                                                                                                        |
+| **setgroups(groups)**             | 设置进程的群组 ID。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。                                                                                                                              |
+| **initgroups(user, extra_group)** | 读取 /etc/group ，并初始化群组访问列表，使用成员所在的所有群组。这是授权操作，所有你需要有 root 权限，或者有 CAP_SETGID 能力。<br>**注意：**这个函数仅在 POSIX 平台上可用(例如，非Windows 和 Android)。                                                                                 |
+| **kill(pid[, signal])**           | 发送信号给进程. pid 是进程id，并且 signal 是发送的信号的字符串描述。信号名是字符串，比如 'SIGINT' 或 'SIGHUP'。如果忽略，信号会是 'SIGTERM'。                                                                                                                                           |
+| **memoryUsage()**                 | 返回一个对象，描述了 Node 进程所用的内存状况，单位为字节。                                                                                                                                                                                                                              |
+| **nextTick(callback)**            | 一旦当前事件循环结束，调用回到函数。                                                                                                                                                                                                                                                    |
+| **umask([mask])**                 | 设置或读取进程文件的掩码。子进程从父进程继承掩码。如果mask 参数有效，返回旧的掩码。否则，返回当前掩码。                                                                                                                                                                                 |
+| **uptime()**                      | 返回 Node 已经运行的秒数。                                                                                                                                                                                                                                                              |
+| **hrtime()**                      | 返回当前进程的高分辨时间，形式为 [seconds, nanoseconds]数组。它是相对于过去的任意事件。该值与日期无关，因此不受时钟漂移的影响。主要用途是可以通过精确的时间间隔，来衡量程序的性能。<br>你可以将之前的结果传递给当前的 process.hrtime() ，会返回两者间的时间差，用来基准和测量时间间隔。 |
 
 ### 实例
 创建文件 main.js ，代码如下所示：
@@ -2449,8 +2437,7 @@ $ node main.js
 { rss: 12541952, heapTotal: 4083456, heapUsed: 2157056 }
 ~~~
 
-===============================================================================
-===============================================================================
+---
 
 # 常用工具
 util 是一个Node.js 核心模块，提供常用函数的集合，用于弥补核心JavaScript 的功能 过于精简的不足。
@@ -2465,38 +2452,38 @@ JavaScript 的面向对象特性是基于原型的，与常见的基于类的不
 在这里我们只介绍util.inherits 的用法，示例如下：
 
 ~~~js
-var util = require('util'); 
-function Base() { 
-	this.name = 'base'; 
-	this.base = 1991; 
-	this.sayHello = function() { 
-	console.log('Hello ' + this.name); 
-	}; 
-} 
-Base.prototype.showName = function() { 
+var util = require('util');
+function Base() {
+	this.name = 'base';
+	this.base = 1991;
+	this.sayHello = function() {
+	console.log('Hello ' + this.name);
+	};
+}
+Base.prototype.showName = function() {
 	console.log(this.name);
-}; 
-function Sub() { 
-	this.name = 'sub'; 
-} 
-util.inherits(Sub, Base); 
-var objBase = new Base(); 
-objBase.showName(); 
-objBase.sayHello(); 
-console.log(objBase); 
-var objSub = new Sub(); 
-objSub.showName(); 
-//objSub.sayHello(); 
-console.log(objSub); 
+};
+function Sub() {
+	this.name = 'sub';
+}
+util.inherits(Sub, Base);
+var objBase = new Base();
+objBase.showName();
+objBase.sayHello();
+console.log(objBase);
+var objSub = new Sub();
+objSub.showName();
+//objSub.sayHello();
+console.log(objSub);
 ~~~
 
 我们定义了一个基础对象Base 和一个继承自Base 的Sub，Base 有三个在构造函数 内定义的属性和一个原型中定义的函数，通过util.inherits 实现继承。运行结果如下：
 
 ~~~js
-base 
-Hello base 
-{ name: 'base', base: 1991, sayHello: [Function] } 
-sub 
+base
+Hello base
+{ name: 'base', base: 1991, sayHello: [Function] }
+sub
 { name: 'sub' }
 ~~~
 
@@ -2505,17 +2492,17 @@ sub
 同时，在原型中定义的属性不会被console.log 作 为对象的属性输出。如果我们去掉 objSub.sayHello(); 这行的注释，将会看到：
 
 ~~~
-node.js:201 
-throw e; // process.nextTick error, or 'error' event on first tick 
-^ 
-TypeError: Object #&lt;Sub&gt; has no method 'sayHello' 
-at Object.&lt;anonymous&gt; (/home/byvoid/utilinherits.js:29:8) 
-at Module._compile (module.js:441:26) 
-at Object..js (module.js:459:10) 
-at Module.load (module.js:348:31) 
-at Function._load (module.js:308:12) 
-at Array.0 (module.js:479:10) 
-at EventEmitter._tickCallback (node.js:192:40) 
+node.js:201
+throw e; // process.nextTick error, or 'error' event on first tick
+^
+TypeError: Object #&lt;Sub&gt; has no method 'sayHello'
+at Object.&lt;anonymous&gt; (/home/byvoid/utilinherits.js:29:8)
+at Module._compile (module.js:441:26)
+at Object..js (module.js:459:10)
+at Module.load (module.js:348:31)
+at Function._load (module.js:308:12)
+at Array.0 (module.js:479:10)
+at EventEmitter._tickCallback (node.js:192:40)
 ~~~
 
 <hr>
@@ -2530,16 +2517,16 @@ depth 表示最大递归的层数，如果对象很复杂，你可以指定层�
 特别要指出的是，util.inspect 并不会简单地直接把对象转换为字符串，即使该对 象定义了toString 方法也不会调用。
 
 ~~~js
-var util = require('util'); 
-function Person() { 
-	this.name = 'byvoid'; 
-	this.toString = function() { 
-	return this.name; 
-	}; 
-} 
-var obj = new Person(); 
-console.log(util.inspect(obj)); 
-console.log(util.inspect(obj, true)); 
+var util = require('util');
+function Person() {
+	this.name = 'byvoid';
+	this.toString = function() {
+	return this.name;
+	};
+}
+var obj = new Person();
+console.log(util.inspect(obj));
+console.log(util.inspect(obj, true));
 ~~~
 
 运行结果是：
@@ -2548,7 +2535,7 @@ console.log(util.inspect(obj, true));
 Person { name: 'byvoid', toString: [Function] }
 Person {
   name: 'byvoid',
-  toString: 
+  toString:
    { [Function]
      [length]: 0,
      [name]: '',
@@ -2621,8 +2608,7 @@ util.isError({ name: 'Error', message: 'an error occurred' })
 
 更多详情可以访问 <http://nodejs.org/api/util.html> 了解详细内容。
 
-===============================================================================
-===============================================================================
+---
 
 # 文件系统
 Node.js 提供一组类似 UNIX（POSIX）标准的文件操作API。 Node 导入文件系统模块(fs)语法如下所示：
@@ -2671,7 +2657,7 @@ console.log("程序执行完毕。");
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 同步读取: 菜鸟教程官网地址：www.runoob.com
 文件读取实例
 
@@ -2702,20 +2688,20 @@ fs.open(path, flags[, mode], callback)
 
 flags 参数可以是以下值：
 
-|Flag|描述|
-|---|---|
-|**r**|以读取模式打开文件。如果文件不存在抛出异常。|
-|**r+**|以读写模式打开文件。如果文件不存在抛出异常。|
-|**rs**|以同步的方式读取文件。|
-|**rs+**|以同步的方式读取和写入文件。|
-|**w**|以写入模式打开文件，如果文件不存在则创建。|
-|**wx**|类似 'w'，但是如果文件路径存在，则文件写入失败。|
-|**w+**|以读写模式打开文件，如果文件不存在则创建。|
-|**wx+**|类似 'w+'， 但是如果文件路径存在，则文件读写失败。|
-|**a**|以追加模式打开文件，如果文件不存在则创建。|
-|**ax**|类似 'a'， 但是如果文件路径存在，则文件追加失败。|
-|**a+**|以读取追加模式打开文件，如果文件不存在则创建。|
-|**ax+**|类似 'a+'， 但是如果文件路径存在，则文件读取追加失败。|
+| Flag    | 描述                                                   |
+|:--------|:-------------------------------------------------------|
+| **r**   | 以读取模式打开文件。如果文件不存在抛出异常。           |
+| **r+**  | 以读写模式打开文件。如果文件不存在抛出异常。           |
+| **rs**  | 以同步的方式读取文件。                                 |
+| **rs+** | 以同步的方式读取和写入文件。                           |
+| **w**   | 以写入模式打开文件，如果文件不存在则创建。             |
+| **wx**  | 类似 'w'，但是如果文件路径存在，则文件写入失败。       |
+| **w+**  | 以读写模式打开文件，如果文件不存在则创建。             |
+| **wx+** | 类似 'w+'， 但是如果文件路径存在，则文件读写失败。     |
+| **a**   | 以追加模式打开文件，如果文件不存在则创建。             |
+| **ax**  | 类似 'a'， 但是如果文件路径存在，则文件追加失败。      |
+| **a+**  | 以读取追加模式打开文件，如果文件不存在则创建。         |
+| **ax+** | 类似 'a+'， 但是如果文件路径存在，则文件读取追加失败。 |
 
 ### 实例
 接下来我们创建 file.js 文件，并打开 input.txt 文件进行读写，代码如下所示：
@@ -2736,7 +2722,7 @@ fs.open('input.txt', 'r+', function(err, fd) {
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 准备打开文件！
 文件打开成功！
 ~~~
@@ -2769,15 +2755,15 @@ fs.stat('/Users/liuht/code/itbilu/demo/fs.js', function (err, stats) {
 
 stats类中的方法有：
 
-|方法 |描述|
-|---|---|
-|**stats.isFile()**|如果是文件返回 true，否则返回 false。|
-|**stats.isDirectory()**|如果是目录返回 true，否则返回 false。|
-|**如果是目录返回 true，否则返回 false。**|如果是块设备返回 true，否则返回 false。|
-|**stats.isCharacterDevice()	**|如果是字符设备返回 true，否则返回 false。|
-|**stats.isSymbolicLink()**|如果是软链接返回 true，否则返回 false。|
-|**stats.isFIFO()**|如果是FIFO，返回true，否则返回 false。FIFO是UNIX中的一种特殊类型的命令管道。|
-|**stats.isSocket()**|如果是 Socket 返回 true，否则返回 false。|
+| 方法                                      | 描述                                                                         |
+|:------------------------------------------|:-----------------------------------------------------------------------------|
+| **stats.isFile()**                        | 如果是文件返回 true，否则返回 false。                                        |
+| **stats.isDirectory()**                   | 如果是目录返回 true，否则返回 false。                                        |
+| **如果是目录返回 true，否则返回 false。** | 如果是块设备返回 true，否则返回 false。                                      |
+| **stats.isCharacterDevice()	**             | 如果是字符设备返回 true，否则返回 false。                                    |
+| **stats.isSymbolicLink()**                | 如果是软链接返回 true，否则返回 false。                                      |
+| **stats.isFIFO()**                        | 如果是FIFO，返回true，否则返回 false。FIFO是UNIX中的一种特殊类型的命令管道。 |
+| **stats.isSocket()**                      | 如果是 Socket 返回 true，否则返回 false。                                    |
 
 ### 实例
 接下来我们创建 file.js 文件，代码如下所示：
@@ -2792,7 +2778,7 @@ fs.stat('input.txt', function (err, stats) {
    }
    console.log(stats);
    console.log("读取文件信息成功！");
-   
+
    // 检测文件类型
    console.log("是否为文件(isFile) ? " + stats.isFile());
    console.log("是否为目录(isDirectory) ? " + stats.isDirectory());    
@@ -2802,7 +2788,7 @@ fs.stat('input.txt', function (err, stats) {
 以上代码执行结果如下：
 
 ~~~js
-$ node file.js 
+$ node file.js
 准备打开文件！
 { dev: 16777220,
   mode: 33188,
@@ -2868,7 +2854,7 @@ fs.writeFile('input.txt', '我是通过写入的文件内容！',  function(err)
 以上代码执行结果如下：
 
 ~~~js
-$ node file.js 
+$ node file.js
 准备写入文件
 数据写入成功！
 --------我是分割线-------------
@@ -2923,7 +2909,7 @@ fs.open('input.txt', 'r+', function(err, fd) {
          console.log(err);
       }
       console.log(bytes + "  字节被读取");
-      
+
       // 仅输出读取的字节
       if(bytes > 0){
          console.log(buf.slice(0, bytes).toString());
@@ -2935,7 +2921,7 @@ fs.open('input.txt', 'r+', function(err, fd) {
 以上代码执行结果如下：
 
 ~~~js
-$ node file.js 
+$ node file.js
 准备打开已存在的文件！
 文件打开成功！
 准备读取文件：
@@ -2995,7 +2981,7 @@ fs.open('input.txt', 'r+', function(err, fd) {
       fs.close(fd, function(err){
          if (err){
             console.log(err);
-         } 
+         }
          console.log("文件关闭成功");
       });
    });
@@ -3005,7 +2991,7 @@ fs.open('input.txt', 'r+', function(err, fd) {
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 准备打开文件！
 文件打开成功！
 准备读取文件！
@@ -3052,14 +3038,14 @@ fs.open('input.txt', 'r+', function(err, fd) {
    }
    console.log("文件打开成功！");
    console.log("截取10字节后的文件内容。");
-   
+
    // 截取文件
    fs.ftruncate(fd, 10, function(err){
       if (err){
          console.log(err);
-      } 
+      }
       console.log("文件截取成功。");
-      console.log("读取相同的文件"); 
+      console.log("读取相同的文件");
       fs.read(fd, buf, 0, buf.length, 0, function(err, bytes){
          if (err){
             console.log(err);
@@ -3074,7 +3060,7 @@ fs.open('input.txt', 'r+', function(err, fd) {
          fs.close(fd, function(err){
             if (err){
                console.log(err);
-            } 
+            }
             console.log("文件关闭成功！");
          });
       });
@@ -3085,7 +3071,7 @@ fs.open('input.txt', 'r+', function(err, fd) {
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 准备打开文件！
 文件打开成功！
 截取10字节后的文件内容。
@@ -3135,7 +3121,7 @@ fs.unlink('input.txt', function(err) {
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 准备删除文件！
 文件删除成功！
 ~~~
@@ -3178,7 +3164,7 @@ fs.mkdir("/tmp/test/",function(err){
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 创建目录 /tmp/test/
 目录创建成功。
 ~~~
@@ -3219,7 +3205,7 @@ fs.readdir("/tmp/",function(err, files){
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 查看 /tmp 目录
 input.out
 output.out
@@ -3269,7 +3255,7 @@ fs.rmdir("/tmp/test",function(err){
 以上代码执行结果如下：
 
 ~~~
-$ node file.js 
+$ node file.js
 准备删除目录 /tmp/test
 input.out
 output.out
@@ -3284,83 +3270,82 @@ test.txt
 ## 文件模块方法参考手册
 以下为 Node.js 文件模块相同的方法列表：
 
-|方法|描述|
-|---|---|
-|**fs.rename(oldPath, newPath, callback)**|异步 rename().回调函数没有参数，但可能抛出异常。|
-|**fs.ftruncate(fd, len, callback)**|异步 ftruncate().回调函数没有参数，但可能抛出异常。|
-|**fs.ftruncateSync(fd, len)**|同步 ftruncate()|
-|**fs.truncate(path, len, callback)**|异步 truncate().回调函数没有参数，但可能抛出异常。|
-|**fs.truncateSync(path, len)**|同步 truncate()|
-|**fs.chown(path, uid, gid, callback)**|异步 chown().回调函数没有参数，但可能抛出异常。|
-|**fs.chownSync(path, uid, gid)**|同步 chown()|
-|**fs.fchown(fd, uid, gid, callback)**|异步 fchown().回调函数没有参数，但可能抛出异常。|
-|**fs.fchownSync(fd, uid, gid)**|同步 fchown()|
-|**fs.lchown(path, uid, gid, callback)**|异步 lchown().回调函数没有参数，但可能抛出异常。|
-|**fs.lchownSync(path, uid, gid)**|同步 lchown()|
-|**fs.chmod(path, mode, callback)**|异步 chmod().回调函数没有参数，但可能抛出异常。|
-|**fs.chmodSync(path, mode)**|同步 chmod().|
-|**fs.fchmod(fd, mode, callback)**|异步 fchmod().回调函数没有参数，但可能抛出异常。|
-|**fs.fchmodSync(fd, mode)**|同步 fchmod().|
-|**fs.lchmod(path, mode, callback)**|异步 lchmod().回调函数没有参数，但可能抛出异常。Only available on Mac OS X.|
-|**fs.lchmodSync(path, mode)**|同步 lchmod().|
-|**fs.stat(path, callback)**|异步 stat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。|
-|**fs.lstat(path, callback)**|异步 lstat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。|
-|**fs.fstat(fd, callback)**|异步 fstat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。|
-|**fs.statSync(path)**|同步 stat(). 返回 fs.Stats 的实例。|
-|**fs.lstatSync(path)**|同步 lstat(). 返回 fs.Stats 的实例|
-|**fs.fstatSync(fd)**|同步 fstat(). 返回 fs.Stats 的实例。|
-|**fs.link(srcpath, dstpath, callback)**|异步 link().回调函数没有参数，但可能抛出异常。|
-|**fs.linkSync(srcpath, dstpath)**|同步 link().|
-|**fs.symlink(srcpath, dstpath[, type], callback)**|异步 symlink().回调函数没有参数，但可能抛出异常。 type 参数可以设置为 'dir', 'file', 或 'junction' (默认为 'file') 。|
-|**fs.symlinkSync(srcpath, dstpath[, type])**|同步 symlink().|
-|**fs.readlink(path, callback)**|异步 readlink(). 回调函数有两个参数 err, linkString。|
-|**fs.realpath(path[, cache], callback)**|异步 realpath(). 回调函数有两个参数 err, resolvedPath。|
-|**fs.realpathSync(path[, cache])**|同步 realpath()。返回绝对路径。|
-|**fs.unlink(path, callback)**|异步 unlink().回调函数没有参数，但可能抛出异常。|
-|**fs.unlinkSync(path)**|同步 unlink().|
-|**fs.rmdir(path, callback)**|异步 rmdir().回调函数没有参数，但可能抛出异常。|
-|**fs.rmdirSync(path)**|同步 rmdir().|
-|**fs.mkdir(path[, mode], callback)**|S异步 mkdir(2).回调函数没有参数，但可能抛出异常。 mode defaults to 0777.|
-|**fs.mkdirSync(path[, mode])**|同步 mkdir().|
-|**fs.readdir(path, callback)**|异步 readdir(3). 读取目录的内容。|
-|**fs.readdirSync(path)**|同步 readdir().返回文件数组列表。|
-|**fs.close(fd, callback)**|异步 close().回调函数没有参数，但可能抛出异常。|
-|**fs.closeSync(fd)**|同步 close().|
-|**fs.open(path, flags[, mode], callback)**|异步打开文件。|
-|**fs.openSync(path, flags[, mode])**|同步 version of fs.open().|
-|**fs.utimes(path, atime, mtime, callback)**||
-|**fs.utimesSync(path, atime, mtime)**|修改文件时间戳，文件通过指定的文件路径。|
-|**fs.futimes(fd, atime, mtime, callback)**||
-|**fs.futimesSync(fd, atime, mtime)**|修改文件时间戳，通过文件描述符指定。|
-|**fs.fsync(fd, callback)**|异步 fsync.回调函数没有参数，但可能抛出异常。|
-|**fs.fsyncSync(fd)**|同步 fsync|
-|**fs.write(fd, buffer, offset, length[, position], callback)**|将缓冲区内容写入到通过文件描述符指定的文件。|
-|**fs.write(fd, data[, position[, encoding]], callback)**|通过文件描述符 fd 写入文件内容。|
-|**fs.writeSync(fd, buffer, offset, length[, position])**|同步版的 fs.write()。|
-|**fs.writeSync(fd, data[, position[, encoding]])**|同步版的 fs.write().|
-|**fs.read(fd, buffer, offset, length, position, callback)**|通过文件描述符 fd 读取文件内容。|
-|**fs.readSync(fd, buffer, offset, length, position)**|同步版的 fs.read.|
-|**fs.readFile(filename[, options], callback)**|异步读取文件内容。|
-|**fs.readFileSync(filename[, options])**||
-|**fs.writeFile(filename, data[, options], callback)**|异步写入文件内容。|
-|**fs.writeFileSync(filename, data[, options])**|同步版的 fs.writeFile。|
-|**fs.appendFile(filename, data[, options], callback)**|异步追加文件内容。|
-|**fs.appendFileSync(filename, data[, options])**|The 同步 version of fs.appendFile.|
-|**fs.watchFile(filename[, options], listener)**|查看文件的修改|
-|**fs.unwatchFile(filename[, listener])**|停止查看 filename 的修改。|
-|**fs.watch(filename[, options][, listener])**|查看 filename 的修改，filename 可以是文件或目录。返回 fs.FSWatcher 对象。|
-|**fs.exists(path, callback)**|检测给定的路径是否存在。|
-|**fs.existsSync(path)**|同步版的 fs.exists.|
-|**fs.access(path[, mode], callback)**|测试指定路径用户权限。|
-|**fs.accessSync(path[, mode])**|同步版的 fs.access。|
-|**fs.createReadStream(path[, options])**|返回ReadStream 对象。|
-|**fs.createWriteStream(path[, options])**|返回 WriteStream 对象。|
-|**fs.symlink(srcpath, dstpath[, type], callback)**|异步 symlink().回调函数没有参数，但可能抛出异常。|
+| 方法                                                           | 描述                                                                                                                  |
+|:---------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
+| **fs.rename(oldPath, newPath, callback)**                      | 异步 rename().回调函数没有参数，但可能抛出异常。                                                                      |
+| **fs.ftruncate(fd, len, callback)**                            | 异步 ftruncate().回调函数没有参数，但可能抛出异常。                                                                   |
+| **fs.ftruncateSync(fd, len)**                                  | 同步 ftruncate()                                                                                                      |
+| **fs.truncate(path, len, callback)**                           | 异步 truncate().回调函数没有参数，但可能抛出异常。                                                                    |
+| **fs.truncateSync(path, len)**                                 | 同步 truncate()                                                                                                       |
+| **fs.chown(path, uid, gid, callback)**                         | 异步 chown().回调函数没有参数，但可能抛出异常。                                                                       |
+| **fs.chownSync(path, uid, gid)**                               | 同步 chown()                                                                                                          |
+| **fs.fchown(fd, uid, gid, callback)**                          | 异步 fchown().回调函数没有参数，但可能抛出异常。                                                                      |
+| **fs.fchownSync(fd, uid, gid)**                                | 同步 fchown()                                                                                                         |
+| **fs.lchown(path, uid, gid, callback)**                        | 异步 lchown().回调函数没有参数，但可能抛出异常。                                                                      |
+| **fs.lchownSync(path, uid, gid)**                              | 同步 lchown()                                                                                                         |
+| **fs.chmod(path, mode, callback)**                             | 异步 chmod().回调函数没有参数，但可能抛出异常。                                                                       |
+| **fs.chmodSync(path, mode)**                                   | 同步 chmod().                                                                                                         |
+| **fs.fchmod(fd, mode, callback)**                              | 异步 fchmod().回调函数没有参数，但可能抛出异常。                                                                      |
+| **fs.fchmodSync(fd, mode)**                                    | 同步 fchmod().                                                                                                        |
+| **fs.lchmod(path, mode, callback)**                            | 异步 lchmod().回调函数没有参数，但可能抛出异常。Only available on Mac OS X.                                           |
+| **fs.lchmodSync(path, mode)**                                  | 同步 lchmod().                                                                                                        |
+| **fs.stat(path, callback)**                                    | 异步 stat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。                                                  |
+| **fs.lstat(path, callback)**                                   | 异步 lstat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。                                                 |
+| **fs.fstat(fd, callback)**                                     | 异步 fstat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。                                                 |
+| **fs.statSync(path)**                                          | 同步 stat(). 返回 fs.Stats 的实例。                                                                                   |
+| **fs.lstatSync(path)**                                         | 同步 lstat(). 返回 fs.Stats 的实例                                                                                    |
+| **fs.fstatSync(fd)**                                           | 同步 fstat(). 返回 fs.Stats 的实例。                                                                                  |
+| **fs.link(srcpath, dstpath, callback)**                        | 异步 link().回调函数没有参数，但可能抛出异常。                                                                        |
+| **fs.linkSync(srcpath, dstpath)**                              | 同步 link().                                                                                                          |
+| **fs.symlink(srcpath, dstpath[, type], callback)**             | 异步 symlink().回调函数没有参数，但可能抛出异常。 type 参数可以设置为 'dir', 'file', 或 'junction' (默认为 'file') 。 |
+| **fs.symlinkSync(srcpath, dstpath[, type])**                   | 同步 symlink().                                                                                                       |
+| **fs.readlink(path, callback)**                                | 异步 readlink(). 回调函数有两个参数 err, linkString。                                                                 |
+| **fs.realpath(path[, cache], callback)**                       | 异步 realpath(). 回调函数有两个参数 err, resolvedPath。                                                               |
+| **fs.realpathSync(path[, cache])**                             | 同步 realpath()。返回绝对路径。                                                                                       |
+| **fs.unlink(path, callback)**                                  | 异步 unlink().回调函数没有参数，但可能抛出异常。                                                                      |
+| **fs.unlinkSync(path)**                                        | 同步 unlink().                                                                                                        |
+| **fs.rmdir(path, callback)**                                   | 异步 rmdir().回调函数没有参数，但可能抛出异常。                                                                       |
+| **fs.rmdirSync(path)**                                         | 同步 rmdir().                                                                                                         |
+| **fs.mkdir(path[, mode], callback)**                           | S异步 mkdir(2).回调函数没有参数，但可能抛出异常。 mode defaults to 0777.                                              |
+| **fs.mkdirSync(path[, mode])**                                 | 同步 mkdir().                                                                                                         |
+| **fs.readdir(path, callback)**                                 | 异步 readdir(3). 读取目录的内容。                                                                                     |
+| **fs.readdirSync(path)**                                       | 同步 readdir().返回文件数组列表。                                                                                     |
+| **fs.close(fd, callback)**                                     | 异步 close().回调函数没有参数，但可能抛出异常。                                                                       |
+| **fs.closeSync(fd)**                                           | 同步 close().                                                                                                         |
+| **fs.open(path, flags[, mode], callback)**                     | 异步打开文件。                                                                                                        |
+| **fs.openSync(path, flags[, mode])**                           | 同步 version of fs.open().                                                                                            |
+| **fs.utimes(path, atime, mtime, callback)**                    |                                                                                                                       |
+| **fs.utimesSync(path, atime, mtime)**                          | 修改文件时间戳，文件通过指定的文件路径。                                                                              |
+| **fs.futimes(fd, atime, mtime, callback)**                     |                                                                                                                       |
+| **fs.futimesSync(fd, atime, mtime)**                           | 修改文件时间戳，通过文件描述符指定。                                                                                  |
+| **fs.fsync(fd, callback)**                                     | 异步 fsync.回调函数没有参数，但可能抛出异常。                                                                         |
+| **fs.fsyncSync(fd)**                                           | 同步 fsync                                                                                                            |
+| **fs.write(fd, buffer, offset, length[, position], callback)** | 将缓冲区内容写入到通过文件描述符指定的文件。                                                                          |
+| **fs.write(fd, data[, position[, encoding]], callback)**       | 通过文件描述符 fd 写入文件内容。                                                                                      |
+| **fs.writeSync(fd, buffer, offset, length[, position])**       | 同步版的 fs.write()。                                                                                                 |
+| **fs.writeSync(fd, data[, position[, encoding]])**             | 同步版的 fs.write().                                                                                                  |
+| **fs.read(fd, buffer, offset, length, position, callback)**    | 通过文件描述符 fd 读取文件内容。                                                                                      |
+| **fs.readSync(fd, buffer, offset, length, position)**          | 同步版的 fs.read.                                                                                                     |
+| **fs.readFile(filename[, options], callback)**                 | 异步读取文件内容。                                                                                                    |
+| **fs.readFileSync(filename[, options])**                       |                                                                                                                       |
+| **fs.writeFile(filename, data[, options], callback)**          | 异步写入文件内容。                                                                                                    |
+| **fs.writeFileSync(filename, data[, options])**                | 同步版的 fs.writeFile。                                                                                               |
+| **fs.appendFile(filename, data[, options], callback)**         | 异步追加文件内容。                                                                                                    |
+| **fs.appendFileSync(filename, data[, options])**               | The 同步 version of fs.appendFile.                                                                                    |
+| **fs.watchFile(filename[, options], listener)**                | 查看文件的修改                                                                                                        |
+| **fs.unwatchFile(filename[, listener])**                       | 停止查看 filename 的修改。                                                                                            |
+| **fs.watch(filename[, options][, listener])**                  | 查看 filename 的修改，filename 可以是文件或目录。返回 fs.FSWatcher 对象。                                             |
+| **fs.exists(path, callback)**                                  | 检测给定的路径是否存在。                                                                                              |
+| **fs.existsSync(path)**                                        | 同步版的 fs.exists.                                                                                                   |
+| **fs.access(path[, mode], callback)**                          | 测试指定路径用户权限。                                                                                                |
+| **fs.accessSync(path[, mode])**                                | 同步版的 fs.access。                                                                                                  |
+| **fs.createReadStream(path[, options])**                       | 返回ReadStream 对象。                                                                                                 |
+| **fs.createWriteStream(path[, options])**                      | 返回 WriteStream 对象。                                                                                               |
+| **fs.symlink(srcpath, dstpath[, type], callback)**             | 异步 symlink().回调函数没有参数，但可能抛出异常。                                                                     |
 
 更多内容，请查看官网文件模块描述：[File System](https://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)。
 
-===============================================================================
-===============================================================================
+---
 
 
 # GET/POST请求
@@ -3419,19 +3404,18 @@ http.createServer(function(req, res){
 }).listen(3000);
 ~~~
 
-===============================================================================
-===============================================================================
+---
 
 # 工具模块
 在 Node.js 模块库中有很多好用的模块。接下来我们为大家介绍几种常用模块的使用：
 
-|模块名|描述|
-|-----|-----|
-|[OS 模块](/#t196OS%20模块)|提供基本的系统操作函数。|
-|[Path 模块](/#t200Path%20模块)|提供了处理和转换文件路的工具。|
-|[Net 模块](/#t204Net%20模块)|用于底层的网络通信。提供了服务端和客户端的的操作。|
-|[DNS 模块](/#t214DNS%20模块)|用于解析域名。|
-|[Domain 模块](/#t219Domain%20模块)|简化异步代码的异常处理，可以捕捉处理try catch无法捕捉的。|
+| 模块名                             | 描述                                                      |
+|:-----------------------------------|:----------------------------------------------------------|
+| [OS 模块](/#t196OS%20模块)         | 提供基本的系统操作函数。                                  |
+| [Path 模块](/#t200Path%20模块)     | 提供了处理和转换文件路的工具。                            |
+| [Net 模块](/#t204Net%20模块)       | 用于底层的网络通信。提供了服务端和客户端的的操作。        |
+| [DNS 模块](/#t214DNS%20模块)       | 用于解析域名。                                            |
+| [Domain 模块](/#t219Domain%20模块) | 简化异步代码的异常处理，可以捕捉处理try catch无法捕捉的。 |
 
 <hr>
 
@@ -3443,27 +3427,27 @@ var os = require("os")
 ~~~
 
 ### 方法
-|方法|描述|
-|---|---|
-|**os.tmpdir()**|返回操作系统的默认临时文件夹。|
-|**os.endianness()**|返回 CPU 的字节序，可能的是 "BE" 或 "LE"。|
-|**os.hostname()**|返回操作系统的主机名。|
-|**os.type()**|返回操作系统名|
-|**os.platform()**|返回操作系统名|
-|**os.arch()**|返回操作系统 CPU 架构，可能的值有 "x64"、"arm" 和 "ia32"。|
-|**os.release()**|返回操作系统的发行版本。|
-|**返回操作系统的发行版本。**|返回操作系统运行的时间，以秒为单位。|
-|**os.loadavg()**|返回一个包含 1、5、15 分钟平均负载的数组。|
-|**os.totalmem()**|返回系统内存总量，单位为字节|
-|**os.freemem()**|返回操作系统空闲内存量，单位是字节。|
-|**os.cpus()**|返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）。|
-|**os.networkInterfaces()**|获得网络接口列表。|
+| 方法                         | 描述                                                                                                                                                   |
+|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **os.tmpdir()**              | 返回操作系统的默认临时文件夹。                                                                                                                         |
+| **os.endianness()**          | 返回 CPU 的字节序，可能的是 "BE" 或 "LE"。                                                                                                             |
+| **os.hostname()**            | 返回操作系统的主机名。                                                                                                                                 |
+| **os.type()**                | 返回操作系统名                                                                                                                                         |
+| **os.platform()**            | 返回操作系统名                                                                                                                                         |
+| **os.arch()**                | 返回操作系统 CPU 架构，可能的值有 "x64"、"arm" 和 "ia32"。                                                                                             |
+| **os.release()**             | 返回操作系统的发行版本。                                                                                                                               |
+| **返回操作系统的发行版本。** | 返回操作系统运行的时间，以秒为单位。                                                                                                                   |
+| **os.loadavg()**             | 返回一个包含 1、5、15 分钟平均负载的数组。                                                                                                             |
+| **os.totalmem()**            | 返回系统内存总量，单位为字节                                                                                                                           |
+| **os.freemem()**             | 返回操作系统空闲内存量，单位是字节。                                                                                                                   |
+| **os.cpus()**                | 返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）。 |
+| **os.networkInterfaces()**   | 获得网络接口列表。                                                                                                                                     |
 
 ### 属性
 
-|属性|描述|
-|---|---|
-|**os.EOL**|定义了操作系统的行尾符的常量。|
+| 属性       | 描述                           |
+|:-----------|:-------------------------------|
+| **os.EOL** | 定义了操作系统的行尾符的常量。 |
 
 ### 实例
 创建 main.js 文件，代码如下所示：
@@ -3490,7 +3474,7 @@ console.log('free memory : ' + os.freemem() + " bytes.");
 代码执行结果如下：
 
 ~~~
-$ node main.js 
+$ node main.js
 endianness : LE
 type : Linux
 platform : linux
@@ -3508,26 +3492,26 @@ var path = require("path")
 ~~~
 
 ### 方法
-|方法|描述|
-|---|---|
-|**path.normalize(p)**|规范化路径，注意'..' 和 '.'。|
-|**path.join([path1][, path2][, ...])**|用于连接路径。该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"。|
-|**path.resolve([from ...], to)**|将 to 参数解析为绝对路径。|
-|**path.isAbsolute(path)**|判断参数 path 是否是绝对路径。|
-|**path.relative(from, to)**|用于将相对路径转为绝对路径。|
-|**path.dirname(p)**|返回路径中代表文件夹的部分，同 Unix 的dirname 命令类似。|
-|**path.basename(p[, ext])**|返回路径中的最后一部分。同 Unix 命令 bashname 类似。|
-|**path.extname(p)**|返回路径中文件的后缀名，即路径中最后一个'.'之后的部分。如果一个路径中并不包含'.'或该路径只包含一个'.' 且这个'.'为路径的第一个字符，则此命令返回空字符串。|
-|**path.parse(pathString)**|返回路径字符串的对象。|
-|**path.format(pathObject)**|从对象中返回路径字符串，和 path.parse 相反。|
+| 方法                                   | 描述                                                                                                                                                      |
+|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **path.normalize(p)**                  | 规范化路径，注意'..' 和 '.'。                                                                                                                             |
+| **path.join([path1][, path2][, ...])** | 用于连接路径。该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"。                                                     |
+| **path.resolve([from ...], to)**       | 将 to 参数解析为绝对路径。                                                                                                                                |
+| **path.isAbsolute(path)**              | 判断参数 path 是否是绝对路径。                                                                                                                            |
+| **path.relative(from, to)**            | 用于将相对路径转为绝对路径。                                                                                                                              |
+| **path.dirname(p)**                    | 返回路径中代表文件夹的部分，同 Unix 的dirname 命令类似。                                                                                                  |
+| **path.basename(p[, ext])**            | 返回路径中的最后一部分。同 Unix 命令 bashname 类似。                                                                                                      |
+| **path.extname(p)**                    | 返回路径中文件的后缀名，即路径中最后一个'.'之后的部分。如果一个路径中并不包含'.'或该路径只包含一个'.' 且这个'.'为路径的第一个字符，则此命令返回空字符串。 |
+| **path.parse(pathString)**             | 返回路径字符串的对象。                                                                                                                                    |
+| **path.format(pathObject)**            | 从对象中返回路径字符串，和 path.parse 相反。                                                                                                              |
 
 ### 属性
-|属性|描述|
-|---|---|
-|**path.sep**|平台的文件路径分隔符，'\\' 或 '/'。|
-|**path.delimiter**|平台的分隔符, ; or ':'.|
-|**path.posix**|提供上述 path 的方法，不过总是以 posix 兼容的方式交互。|
-|**path.win32**|提供上述 path 的方法，不过总是以 win32 兼容的方式交互。|
+| 属性               | 描述                                                    |
+|:-------------------|:--------------------------------------------------------|
+| **path.sep**       | 平台的文件路径分隔符，'\\' 或 '/'。                     |
+| **path.delimiter** | 平台的分隔符, ; or ':'.                                 |
+| **path.posix**     | 提供上述 path 的方法，不过总是以 posix 兼容的方式交互。 |
+| **path.win32**     | 提供上述 path 的方法，不过总是以 win32 兼容的方式交互。 |
 
 ### 实例
 创建 main.js 文件，代码如下所示：
@@ -3551,7 +3535,7 @@ console.log('ext name : ' + path.extname('main.js'));
 代码执行结果如下：
 
 ~~~
-$ node main.js 
+$ node main.js
 normalization : /test/test1/2slashes/1slash
 joint path : /test/test1/2slashes/1slash
 resolve : /web/com/1427176256_27423/main.js
@@ -3568,41 +3552,41 @@ var net = require("net")
 ~~~
 
 ### 方法
-|方法|描述|
-|---|---|
-|**net.createServer**([options][, connectionListener])|创建一个 TCP 服务器。参数 connectionListener 自动给 'connection' 事件创建监听器。|
-|**net.connect**(options[, connectionListener])|返回一个新的 'net.Socket'，并连接到指定的地址和端口。<br>当 socket 建立的时候，将会触发 'connect' 事件。|
-|**net.createConnection**(options[, connectionListener])|创建一个到端口 port 和 主机 host的 TCP 连接。 host 默认为 'localhost'。|
-|**net.connect**(port[, host][, connectListener])|创建一个端口为 port 和主机为 host的 TCP 连接 。host 默认为 'localhost'。参数 connectListener 将会作为监听器添加到 'connect' 事件。返回 'net.Socket'。|
-|**net.createConnection**(port[, host][, connectListener])|创建一个端口为 port 和主机为 host的 TCP 连接 。host 默认为 'localhost'。参数 connectListener 将会作为监听器添加到 'connect' 事件。返回 'net.Socket'。|
-|**net.connect**(path[, connectListener])|创建连接到 path 的 unix socket 。参数 connectListener 将会作为监听器添加到 'connect' 事件上。返回 'net.Socket'。|
-|**net.createConnection**(path[, connectListener])|创建连接到 path 的 unix socket 。参数 connectListener 将会作为监听器添加到 'connect' 事件。返回 'net.Socket'。|
-|**net.isIP**(input)|检测输入的是否为 IP 地址。 IPV4 返回 4， IPV6 返回 6，其他情况返回 0。|
-|**net.isIPv4**(input)|如果输入的地址为 IPV4， 返回 true，否则返回 false。|
-|**net.isIPv6**(input)|如果输入的地址为 IPV6， 返回 true，否则返回 false。|
+| 方法                                                      | 描述                                                                                                                                                  |
+|:----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **net.createServer**([options][, connectionListener])     | 创建一个 TCP 服务器。参数 connectionListener 自动给 'connection' 事件创建监听器。                                                                     |
+| **net.connect**(options[, connectionListener])            | 返回一个新的 'net.Socket'，并连接到指定的地址和端口。<br>当 socket 建立的时候，将会触发 'connect' 事件。                                              |
+| **net.createConnection**(options[, connectionListener])   | 创建一个到端口 port 和 主机 host的 TCP 连接。 host 默认为 'localhost'。                                                                               |
+| **net.connect**(port[, host][, connectListener])          | 创建一个端口为 port 和主机为 host的 TCP 连接 。host 默认为 'localhost'。参数 connectListener 将会作为监听器添加到 'connect' 事件。返回 'net.Socket'。 |
+| **net.createConnection**(port[, host][, connectListener]) | 创建一个端口为 port 和主机为 host的 TCP 连接 。host 默认为 'localhost'。参数 connectListener 将会作为监听器添加到 'connect' 事件。返回 'net.Socket'。 |
+| **net.connect**(path[, connectListener])                  | 创建连接到 path 的 unix socket 。参数 connectListener 将会作为监听器添加到 'connect' 事件上。返回 'net.Socket'。                                      |
+| **net.createConnection**(path[, connectListener])         | 创建连接到 path 的 unix socket 。参数 connectListener 将会作为监听器添加到 'connect' 事件。返回 'net.Socket'。                                        |
+| **net.isIP**(input)                                       | 检测输入的是否为 IP 地址。 IPV4 返回 4， IPV6 返回 6，其他情况返回 0。                                                                                |
+| **net.isIPv4**(input)                                     | 如果输入的地址为 IPV4， 返回 true，否则返回 false。                                                                                                   |
+| **net.isIPv6**(input)                                     | 如果输入的地址为 IPV6， 返回 true，否则返回 false。                                                                                                   |
 
 ### net.Server
 net.Server通常用于创建一个 TCP 或本地服务器。
 
-|方法|描述|
-|---|---|
-|**server.listen**(port[, host][, backlog][, callback])|监听指定端口 port 和 主机 host ac连接。 默认情况下 host 接受任何 IPv4 地址(INADDR_ANY)的直接连接。端口 port 为 0 时，则会分配一个随机端口。|
-|**server.listen**(path[, callback])|通过指定 path 的连接，启动一个本地 socket 服务器。|
-|**server.listen**(handle[, callback])|通过指定句柄连接。|
-|**server.listen**(options[, callback])|options 的属性：端口 port, 主机 host, 和 backlog, 以及可选参数 callback 函数, 他们在一起调用server.listen(port, [host], [backlog], [callback])。还有，参数 path 可以用来指定 UNIX socket。|
-|**server.close**([callback])|服务器停止接收新的连接，保持现有连接。这是异步函数，当所有连接结束的时候服务器会关闭，并会触发 'close' 事件。|
-|**server.address()**|操作系统返回绑定的地址，协议族名和服务器端口。|
-|**server.unref()**|如果这是事件系统中唯一一个活动的服务器，调用 unref 将允许程序退出。|
-|**server.ref()**|与 unref 相反，如果这是唯一的服务器，在之前被 unref 了的服务器上调用 ref 将不会让程序退出（默认行为）。如果服务器已经被 ref，则再次调用 ref 并不会产生影响。|
-|**server.getConnections(callback)**|异步获取服务器当前活跃连接的数量。当 socket 发送给子进程后才有效；回调函数有 2 个参数 err 和 count。|
+| 方法                                                   | 描述                                                                                                                                                                                       |
+|:-------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **server.listen**(port[, host][, backlog][, callback]) | 监听指定端口 port 和 主机 host ac连接。 默认情况下 host 接受任何 IPv4 地址(INADDR_ANY)的直接连接。端口 port 为 0 时，则会分配一个随机端口。                                                |
+| **server.listen**(path[, callback])                    | 通过指定 path 的连接，启动一个本地 socket 服务器。                                                                                                                                         |
+| **server.listen**(handle[, callback])                  | 通过指定句柄连接。                                                                                                                                                                         |
+| **server.listen**(options[, callback])                 | options 的属性：端口 port, 主机 host, 和 backlog, 以及可选参数 callback 函数, 他们在一起调用server.listen(port, [host], [backlog], [callback])。还有，参数 path 可以用来指定 UNIX socket。 |
+| **server.close**([callback])                           | 服务器停止接收新的连接，保持现有连接。这是异步函数，当所有连接结束的时候服务器会关闭，并会触发 'close' 事件。                                                                              |
+| **server.address()**                                   | 操作系统返回绑定的地址，协议族名和服务器端口。                                                                                                                                             |
+| **server.unref()**                                     | 如果这是事件系统中唯一一个活动的服务器，调用 unref 将允许程序退出。                                                                                                                        |
+| **server.ref()**                                       | 与 unref 相反，如果这是唯一的服务器，在之前被 unref 了的服务器上调用 ref 将不会让程序退出（默认行为）。如果服务器已经被 ref，则再次调用 ref 并不会产生影响。                               |
+| **server.getConnections(callback)**                    | 异步获取服务器当前活跃连接的数量。当 socket 发送给子进程后才有效；回调函数有 2 个参数 err 和 count。                                                                                       |
 
 #### 事件
-|事件|描述|
-|---|---|
-|**listening**|当服务器调用 server.listen 绑定后会触发。|
-|**connection**|当新连接创建后会被触发。socket 是 net.Socket实例。|
-|**close**|服务器关闭时会触发。注意，如果存在连接，这个事件不会被触发直到所有的连接关闭。|
-|**error**|发生错误时触发。'close' 事件将被下列事件直接调用。|
+| 事件           | 描述                                                                           |
+|:---------------|:-------------------------------------------------------------------------------|
+| **listening**  | 当服务器调用 server.listen 绑定后会触发。                                      |
+| **connection** | 当新连接创建后会被触发。socket 是 net.Socket实例。                             |
+| **close**      | 服务器关闭时会触发。注意，如果存在连接，这个事件不会被触发直到所有的连接关闭。 |
+| **error**      | 发生错误时触发。'close' 事件将被下列事件直接调用。                             |
 
 ### net.Socket
 net.Socket 对象是 TCP 或 UNIX Socket 的抽象。net.Socket 实例实现了一个双工流接口。 他们可以在用户创建客户端(使用 connect())时使用, 或者由 Node 创建它们，并通过 connection 服务器事件传递给用户。
@@ -3610,56 +3594,56 @@ net.Socket 对象是 TCP 或 UNIX Socket 的抽象。net.Socket 实例实现了�
 #### 事件
 net.Socket 事件有：
 
-|事件|描述|
-|---|---|
-|**lookup**|在解析域名后，但在连接前，触发这个事件。对 UNIX sokcet 不适用。|
-|**connect**|成功建立 socket 连接时触发。|
-|**data**|当接收到数据时触发。|
-|**end**|当 socket 另一端发送 FIN 包时，触发该事件。|
-|**timeout**|当 socket 空闲超时时触发，仅是表明 socket 已经空闲。用户必须手动关闭连接。|
-|**drain**|当写缓存为空得时候触发。可用来控制上传。|
-|**error**|错误发生时触发。|
-|**close**|当 socket 完全关闭时触发。参数 had_error 是布尔值，它表示是否因为传输错误导致 socket 关闭。|
+| 事件        | 描述                                                                                        |
+|:------------|:--------------------------------------------------------------------------------------------|
+| **lookup**  | 在解析域名后，但在连接前，触发这个事件。对 UNIX sokcet 不适用。                             |
+| **connect** | 成功建立 socket 连接时触发。                                                                |
+| **data**    | 当接收到数据时触发。                                                                        |
+| **end**     | 当 socket 另一端发送 FIN 包时，触发该事件。                                                 |
+| **timeout** | 当 socket 空闲超时时触发，仅是表明 socket 已经空闲。用户必须手动关闭连接。                  |
+| **drain**   | 当写缓存为空得时候触发。可用来控制上传。                                                    |
+| **error**   | 错误发生时触发。                                                                            |
+| **close**   | 当 socket 完全关闭时触发。参数 had_error 是布尔值，它表示是否因为传输错误导致 socket 关闭。 |
 
 #### 属性
 net.Socket 提供了很多有用的属性，便于控制 socket 交互：
 
-|属性|描述|
-|---|---|
-|**socket.bufferSize**|该属性显示了要写入缓冲区的字节数。|
-|**socket.remoteAddress**|远程的 IP 地址字符串，例如：'74.125.127.100' or '2001:4860:a005::68'。|
-|**socket.remoteFamily**|远程IP协议族字符串，比如 'IPv4' or 'IPv6'。|
-|**socket.remotePort**|远程端口，数字表示，例如：80 or 21。|
-|**socket.localAddress**|网络连接绑定的本地接口 远程客户端正在连接的本地 IP 地址，字符串表示。例如，如果你在监听'0.0.0.0'而客户端连接在'192.168.1.1'，这个值就会是 '192.168.1.1'。|
-|**socket.localPort**|本地端口地址，数字表示。例如：80 or 21。|
-|**socket.bytesRead**|接收到得字节数。|
-|**socket.bytesWritten**|发送的字节数。|
+| 属性                     | 描述                                                                                                                                                      |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **socket.bufferSize**    | 该属性显示了要写入缓冲区的字节数。                                                                                                                        |
+| **socket.remoteAddress** | 远程的 IP 地址字符串，例如：'74.125.127.100' or '2001:4860:a005::68'。                                                                                    |
+| **socket.remoteFamily**  | 远程IP协议族字符串，比如 'IPv4' or 'IPv6'。                                                                                                               |
+| **socket.remotePort**    | 远程端口，数字表示，例如：80 or 21。                                                                                                                      |
+| **socket.localAddress**  | 网络连接绑定的本地接口 远程客户端正在连接的本地 IP 地址，字符串表示。例如，如果你在监听'0.0.0.0'而客户端连接在'192.168.1.1'，这个值就会是 '192.168.1.1'。 |
+| **socket.localPort**     | 本地端口地址，数字表示。例如：80 or 21。                                                                                                                  |
+| **socket.bytesRead**     | 接收到得字节数。                                                                                                                                          |
+| **socket.bytesWritten**  | 发送的字节数。                                                                                                                                            |
 
 #### 方法
-|方法|描述|
-|---|---|
-|**new net.Socket**([options])|构造一个新的 socket 对象。|
-|**socket.connect**(port[, host][, connectListener])|指定端口 port 和 主机 host，创建 socket 连接 。参数 host 默认为 localhost。通常情况不需要使用 net.createConnection 打开 socket。只有你实现了自己的 socket 时才会用到。|
-|**socket.connect**(path[, connectListener])|打开指定路径的 unix socket。通常情况不需要使用 net.createConnection 打开 socket。只有你实现了自己的 socket 时才会用到。|
-|**socket.setEncoding**([encoding])|设置编码|
-|**socket.write**(data[, encoding][, callback])|在 socket 上发送数据。第二个参数指定了字符串的编码，默认是 UTF8 编码。|
-|**socket.end**([data][, encoding])|半关闭 socket。例如，它发送一个 FIN 包。可能服务器仍在发送数据。|
-|**socket.destroy()**|确保没有 I/O 活动在这个套接字上。只有在错误发生情况下才需要。（处理错误等等）。|
-|**socket.pause()**|暂停读取数据。就是说，不会再触发 data 事件。对于控制上传非常有用。|
-|**socket.resume()**|调用 pause() 后想恢复读取数据。|
-|**socket.setTimeout**(timeout[, callback])|socket 闲置时间超过 timeout 毫秒后 ，将 socket 设置为超时。|
-|**socket.setNoDelay**([noDelay])|禁用纳格（Nagle）算法。默认情况下 TCP 连接使用纳格算法，在发送前他们会缓冲数据。将 noDelay 设置为 true 将会在调用 socket.write() 时立即发送数据。noDelay 默认值为 true。|
-|**socket.setKeepAlive**([enable][, initialDelay])|禁用/启用长连接功能，并在发送第一个在闲置 socket 上的长连接 probe 之前，可选地设定初始延时。默认为 false。 设定 initialDelay （毫秒），来设定收到的最后一个数据包和第一个长连接probe之间的延时。将 initialDelay 设为0，将会保留默认（或者之前）的值。默认值为0.|
-|**socket.address()**|操作系统返回绑定的地址，协议族名和服务器端口。返回的对象有 3 个属性，比如{ port: 12346, family: 'IPv4', address: '127.0.0.1' }。|
-|**socket.unref()**|如果这是事件系统中唯一一个活动的服务器，调用 unref 将允许程序退出。如果服务器已被 unref，则再次调用 unref 并不会产生影响。|
-|**socket.ref()**|与 unref 相反，如果这是唯一的服务器，在之前被 unref 了的服务器上调用 ref 将不会让程序退出（默认行为）。如果服务器已经被 ref，则再次调用 ref 并不会产生影响。|
+| 方法                                                | 描述                                                                                                                                                                                                                                                            |
+|:----------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **new net.Socket**([options])                       | 构造一个新的 socket 对象。                                                                                                                                                                                                                                      |
+| **socket.connect**(port[, host][, connectListener]) | 指定端口 port 和 主机 host，创建 socket 连接 。参数 host 默认为 localhost。通常情况不需要使用 net.createConnection 打开 socket。只有你实现了自己的 socket 时才会用到。                                                                                          |
+| **socket.connect**(path[, connectListener])         | 打开指定路径的 unix socket。通常情况不需要使用 net.createConnection 打开 socket。只有你实现了自己的 socket 时才会用到。                                                                                                                                         |
+| **socket.setEncoding**([encoding])                  | 设置编码                                                                                                                                                                                                                                                        |
+| **socket.write**(data[, encoding][, callback])      | 在 socket 上发送数据。第二个参数指定了字符串的编码，默认是 UTF8 编码。                                                                                                                                                                                          |
+| **socket.end**([data][, encoding])                  | 半关闭 socket。例如，它发送一个 FIN 包。可能服务器仍在发送数据。                                                                                                                                                                                                |
+| **socket.destroy()**                                | 确保没有 I/O 活动在这个套接字上。只有在错误发生情况下才需要。（处理错误等等）。                                                                                                                                                                                 |
+| **socket.pause()**                                  | 暂停读取数据。就是说，不会再触发 data 事件。对于控制上传非常有用。                                                                                                                                                                                              |
+| **socket.resume()**                                 | 调用 pause() 后想恢复读取数据。                                                                                                                                                                                                                                 |
+| **socket.setTimeout**(timeout[, callback])          | socket 闲置时间超过 timeout 毫秒后 ，将 socket 设置为超时。                                                                                                                                                                                                     |
+| **socket.setNoDelay**([noDelay])                    | 禁用纳格（Nagle）算法。默认情况下 TCP 连接使用纳格算法，在发送前他们会缓冲数据。将 noDelay 设置为 true 将会在调用 socket.write() 时立即发送数据。noDelay 默认值为 true。                                                                                        |
+| **socket.setKeepAlive**([enable][, initialDelay])   | 禁用/启用长连接功能，并在发送第一个在闲置 socket 上的长连接 probe 之前，可选地设定初始延时。默认为 false。 设定 initialDelay （毫秒），来设定收到的最后一个数据包和第一个长连接probe之间的延时。将 initialDelay 设为0，将会保留默认（或者之前）的值。默认值为0. |
+| **socket.address()**                                | 操作系统返回绑定的地址，协议族名和服务器端口。返回的对象有 3 个属性，比如{ port: 12346, family: 'IPv4', address: '127.0.0.1' }。                                                                                                                                |
+| **socket.unref()**                                  | 如果这是事件系统中唯一一个活动的服务器，调用 unref 将允许程序退出。如果服务器已被 unref，则再次调用 unref 并不会产生影响。                                                                                                                                      |
+| **socket.ref()**                                    | 与 unref 相反，如果这是唯一的服务器，在之前被 unref 了的服务器上调用 ref 将不会让程序退出（默认行为）。如果服务器已经被 ref，则再次调用 ref 并不会产生影响。                                                                                                    |
 
 #### 实例
 创建 server.js 文件，代码如下所示：
 
 ~~~js
 var net = require('net');
-var server = net.createServer(function(connection) { 
+var server = net.createServer(function(connection) {
    console.log('client connected');
    connection.on('end', function() {
       console.log('客户端关闭连接');
@@ -3667,7 +3651,7 @@ var server = net.createServer(function(connection) {
    connection.write('Hello World!\r\n');
    connection.pipe(connection);
 });
-server.listen(8080, function() { 
+server.listen(8080, function() {
   console.log('server is listening');
 });
 ~~~
@@ -3690,7 +3674,7 @@ client.on('data', function(data) {
    console.log(data.toString());
    client.end();
 });
-client.on('end', function() { 
+client.on('end', function() {
    console.log('断开与服务器的连接');
 });
 ~~~
@@ -3716,22 +3700,22 @@ var dns = require("dns")
 ~~~
 
 ### 方法
-|方法|描述|
-|---|---|
-|**dns.lookup**(hostname[, options], callback)|将域名（比如 'runoob.com'）解析为第一条找到的记录 A （IPV4）或 AAAA(IPV6)。参数 options可以是一个对象或整数。如果没有提供 options，IP v4 和 v6 地址都可以。如果 options 是整数，则必须是 4 或 6。|
-|**dns.lookupService**(address, port, callback)|使用 getnameinfo 解析传入的地址和端口为域名和服务。|
-|**dns.resolve**(hostname[, rrtype], callback)|将一个域名（如 'runoob.com'）解析为一个 rrtype 指定记录类型的数组。|
-|**dns.resolve4**(hostname, callback)|和 dns.resolve() 类似, 仅能查询 IPv4 (A 记录）。 addresses IPv4 地址数组 (比如，['74.125.79.104', '74.125.79.105', '74.125.79.106']）。|
-|**dns.resolve6**(hostname, callback)|和 dns.resolve4() 类似， 仅能查询 IPv6( AAAA 查询）|
-|**dns.resolveMx**(hostname, callback)|和 dns.resolve() 类似, 仅能查询邮件交换(MX 记录)。|
-|**dns.resolveTxt**(hostname, callback)|和 dns.resolve() 类似, 仅能进行文本查询 (TXT 记录）。 addresses 是 2-d 文本记录数组。(比如，[ ['v=spf1 ip4:0.0.0.0 ', '~all' ] ]）。 每个子数组包含一条记录的 TXT 块。根据使用情况可以连接在一起，也可单独使用。|
-|**dns.resolveSrv**(hostname, callback)|和 dns.resolve() 类似, 仅能进行服务记录查询 (SRV 记录）。 addresses 是 hostname可用的 SRV 记录数组。 SRV 记录属性有优先级（priority），权重（weight）, 端口（port）, 和名字（name） (比如，[{'priority': 10, 'weight': 5, 'port': 21223, 'name': 'service.example.com'}, ...]）。|
-|**dns.resolveSoa**(hostname, callback)|和 dns.resolve() 类似, 仅能查询权威记录(SOA 记录）。|
-|**dns.resolveNs**(hostname, callback)|和 dns.resolve() 类似, 仅能进行域名服务器记录查询(NS 记录）。 addresses 是域名服务器记录数组（hostname 可以使用） (比如, ['ns1.example.com', 'ns2.example.com']）。|
-|**dns.resolveCname**(hostname, callback)|和 dns.resolve() 类似, 仅能进行别名记录查询 (CNAME记录)。addresses 是对 hostname 可用的别名记录数组 (比如，, ['bar.example.com']）。|
-|**dns.reverse**(ip, callback)|反向解析 IP 地址，指向该 IP 地址的域名数组。|
-|**dns.getServers()**|返回一个用于当前解析的 IP 地址数组的字符串。|
-|**dns.setServers**(servers)|指定一组 IP 地址作为解析服务器。|
+| 方法                                           | 描述                                                                                                                                                                                                                                                                              |
+|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **dns.lookup**(hostname[, options], callback)  | 将域名（比如 'runoob.com'）解析为第一条找到的记录 A （IPV4）或 AAAA(IPV6)。参数 options可以是一个对象或整数。如果没有提供 options，IP v4 和 v6 地址都可以。如果 options 是整数，则必须是 4 或 6。                                                                                 |
+| **dns.lookupService**(address, port, callback) | 使用 getnameinfo 解析传入的地址和端口为域名和服务。                                                                                                                                                                                                                               |
+| **dns.resolve**(hostname[, rrtype], callback)  | 将一个域名（如 'runoob.com'）解析为一个 rrtype 指定记录类型的数组。                                                                                                                                                                                                               |
+| **dns.resolve4**(hostname, callback)           | 和 dns.resolve() 类似, 仅能查询 IPv4 (A 记录）。 addresses IPv4 地址数组 (比如，['74.125.79.104', '74.125.79.105', '74.125.79.106']）。                                                                                                                                           |
+| **dns.resolve6**(hostname, callback)           | 和 dns.resolve4() 类似， 仅能查询 IPv6( AAAA 查询）                                                                                                                                                                                                                               |
+| **dns.resolveMx**(hostname, callback)          | 和 dns.resolve() 类似, 仅能查询邮件交换(MX 记录)。                                                                                                                                                                                                                                |
+| **dns.resolveTxt**(hostname, callback)         | 和 dns.resolve() 类似, 仅能进行文本查询 (TXT 记录）。 addresses 是 2-d 文本记录数组。(比如，[ ['v=spf1 ip4:0.0.0.0 ', '~all' ] ]）。 每个子数组包含一条记录的 TXT 块。根据使用情况可以连接在一起，也可单独使用。                                                                  |
+| **dns.resolveSrv**(hostname, callback)         | 和 dns.resolve() 类似, 仅能进行服务记录查询 (SRV 记录）。 addresses 是 hostname可用的 SRV 记录数组。 SRV 记录属性有优先级（priority），权重（weight）, 端口（port）, 和名字（name） (比如，[{'priority': 10, 'weight': 5, 'port': 21223, 'name': 'service.example.com'}, ...]）。 |
+| **dns.resolveSoa**(hostname, callback)         | 和 dns.resolve() 类似, 仅能查询权威记录(SOA 记录）。                                                                                                                                                                                                                              |
+| **dns.resolveNs**(hostname, callback)          | 和 dns.resolve() 类似, 仅能进行域名服务器记录查询(NS 记录）。 addresses 是域名服务器记录数组（hostname 可以使用） (比如, ['ns1.example.com', 'ns2.example.com']）。                                                                                                               |
+| **dns.resolveCname**(hostname, callback)       | 和 dns.resolve() 类似, 仅能进行别名记录查询 (CNAME记录)。addresses 是对 hostname 可用的别名记录数组 (比如，, ['bar.example.com']）。                                                                                                                                              |
+| **dns.reverse**(ip, callback)                  | 反向解析 IP 地址，指向该 IP 地址的域名数组。                                                                                                                                                                                                                                      |
+| **dns.getServers()**                           | 返回一个用于当前解析的 IP 地址数组的字符串。                                                                                                                                                                                                                                      |
+| **dns.setServers**(servers)                    | 指定一组 IP 地址作为解析服务器。                                                                                                                                                                                                                                                  |
 
 ### rrtypes
 以下列出了 dns.resolve() 方法中有效的 rrtypes值:
@@ -3817,22 +3801,22 @@ Domain 模块可分为隐式绑定和显式绑定：
 
 ### 方法
 
-|方法|描述|
-|---|---|
-|**domain.run(function)**|在域的上下文运行提供的函数，隐式的绑定了所有的事件分发器，计时器和底层请求。|
-|**domain.add(emitter)**|显式的增加事件|
-|**domain.remove(emitter)**|删除事件。|
-|**domain.bind(callback)**|返回的函数是一个对于所提供的回调函数的包装函数。当调用这个返回的函数被时，所有被抛出的错误都会被导向到这个域的 error 事件。|
-|**domain.intercept(callback)**|和 domain.bind(callback) 类似。除了捕捉被抛出的错误外，它还会拦截 Error 对象作为参数传递到这个函数。|
-|**domain.enter()**|进入一个异步调用的上下文，绑定到domain。|
-|**domain.exit()**|退出当前的domain，切换到不同的链的异步调用的上下文中。对应domain.enter()。|
-|**domain.dispose()**|释放一个domain对象，让node进程回收这部分资源。|
-|**domain.create()**|返回一个domain对象。|
+| 方法                           | 描述                                                                                                                        |
+|:-------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
+| **domain.run(function)**       | 在域的上下文运行提供的函数，隐式的绑定了所有的事件分发器，计时器和底层请求。                                                |
+| **domain.add(emitter)**        | 显式的增加事件                                                                                                              |
+| **domain.remove(emitter)**     | 删除事件。                                                                                                                  |
+| **domain.bind(callback)**      | 返回的函数是一个对于所提供的回调函数的包装函数。当调用这个返回的函数被时，所有被抛出的错误都会被导向到这个域的 error 事件。 |
+| **domain.intercept(callback)** | 和 domain.bind(callback) 类似。除了捕捉被抛出的错误外，它还会拦截 Error 对象作为参数传递到这个函数。                        |
+| **domain.enter()**             | 进入一个异步调用的上下文，绑定到domain。                                                                                    |
+| **domain.exit()**              | 退出当前的domain，切换到不同的链的异步调用的上下文中。对应domain.enter()。                                                  |
+| **domain.dispose()**           | 释放一个domain对象，让node进程回收这部分资源。                                                                              |
+| **domain.create()**            | 返回一个domain对象。                                                                                                        |
 
 ### 属性
-|属性|描述|
-|---|---|
-|**domain.members**|已加入domain对象的域定时器和事件发射器的数组。|
+| 属性               | 描述                                           |
+|:-------------------|:-----------------------------------------------|
+| **domain.members** | 已加入domain对象的域定时器和事件发射器的数组。 |
 
 ### 实例
 创建 main.js 文件，代码如下所示：
@@ -3901,8 +3885,7 @@ Error: 转换为异常，系统将崩溃!
     at node.js:929:3
 ~~~
 
-===============================================================================
-===============================================================================
+---
 
 # Web 模块
 ## 什么是 Web 服务器？
@@ -3941,10 +3924,10 @@ var url = require('url');
 http.createServer( function (request, response) {  
    // 解析请求，包括文件名
    var pathname = url.parse(request.url).pathname;
-   
+
    // 输出请求的文件名
    console.log("Request for " + pathname + " received.");
-   
+
    // 从文件系统中读取请求的文件内容
    fs.readFile(pathname.substr(1), function (err, data) {
       if (err) {
@@ -3955,8 +3938,8 @@ http.createServer( function (request, response) {
       }else{	         
          // HTTP 状态码: 200 : OK
          // Content Type: text/plain
-         response.writeHead(200, {'Content-Type': 'text/html'});	
-         
+         response.writeHead(200, {'Content-Type': 'text/html'});
+
          // 响应文件内容
          response.write(data.toString());		
       }
@@ -4003,8 +3986,7 @@ Request for /index.htm received.     #  客户端请求信息
 ## Gif 实例演示
 ![](http://blogimg.jakeyu.top//nodejs%E6%95%99%E7%A8%8B/nodejs-gif5.gif)
 
-===============================================================================
-===============================================================================
+---
 
 # Express 框架
 ## Express 简介
@@ -4067,7 +4049,7 @@ var server = app.listen(8081, function () {
 执行以上代码：
 
 ~~~
-$ node express_demo.js 
+$ node express_demo.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4188,7 +4170,7 @@ var server = app.listen(8081, function () {
 执行以上代码：
 
 ~~~
-$ node express_demo2.js 
+$ node express_demo2.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4253,7 +4235,7 @@ var server = app.listen(8081, function () {
 执行以上代码：
 
 ~~~
-$ node express_demo3.js 
+$ node express_demo3.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4317,7 +4299,7 @@ var server = app.listen(8081, function () {
 执行以上代码：
 
 ~~~
-node server.js 
+node server.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4454,7 +4436,7 @@ app.post('/file_upload', function (req, res) {
               console.log( err );
          }else{
                response = {
-                   message:'File uploaded successfully', 
+                   message:'File uploaded successfully',
                    filename:req.files[0].originalname
               };
           }
@@ -4477,7 +4459,7 @@ var server = app.listen(8081, function () {
 执行以上代码：
 
 ~~~
-$ node server.js 
+$ node server.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4512,7 +4494,7 @@ app.listen(8081)
 执行以上代码：
 
 ~~~
-$ node express_cookie.js 
+$ node express_cookie.js
 ~~~
 
 现在你可以访问 http://127.0.0.1:8081 并查看终端信息的输出，如下演示：
@@ -4526,8 +4508,7 @@ Express官网： <http://expressjs.com/>
 
 Express4.x API：<http://expressjs.com/zh-cn/4x/api.html>
 
-===============================================================================
-===============================================================================
+---
 
 # RESTful API
 ## 什么是 REST？
@@ -4586,12 +4567,12 @@ RESTful Web 服务通常可以通过自动客户端或代表用户的应用程�
 
 基于以上数据，我们创建以下 RESTful API：
 
-|序号|	URI	HTTP |方法|	发送内容|	结果|
-|---|---------|----|-------|-----|
-|1|listUsers|	GET|	空	|显示所有用户列表|
-|2|	addUser|	POST|	JSON字符串	|添加新用户|
-|3|	deleteUser|	DELETE|	JSON 字符串	|删除用户|
-|4|	:id|	GET|	空	|显示用户详细信息|
+| 序号 | URI	HTTP    | 方法   | 发送内容    | 结果             |
+|:-----|:-----------|:-------|:------------|:-----------------|
+| 1    | listUsers  | GET    | 空          | 显示所有用户列表 |
+| 2    | addUser    | POST   | JSON字符串  | 添加新用户       |
+| 3    | deleteUser | DELETE | JSON 字符串 | 删除用户         |
+| 4    | :id        | GET    | 空          | 显示用户详细信息 |
 
 ### 获取用户列表：
 以下代码，我们创建了 RESTful API listUsers，用于读取用户的信息列表， server.js 文件代码如下所示：
@@ -4621,7 +4602,7 @@ var server = app.listen(8081, function () {
 接下来执行以下命令：
 
 ~~~
-$ node server.js 
+$ node server.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4690,7 +4671,7 @@ var server = app.listen(8081, function () {
 接下来执行以下命令：
 
 ~~~
-$ node server.js 
+$ node server.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4716,7 +4697,7 @@ $ node server.js
    { name: 'mohit',
      password: 'password4',
      profession: 'teacher',
-     id: 4 } 
+     id: 4 }
 }
 ~~~
 
@@ -4732,7 +4713,7 @@ app.get('/:id', function (req, res) {
    // 首先我们读取已存在的用户
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
        data = JSON.parse( data );
-       var user = data["user" + req.params.id] 
+       var user = data["user" + req.params.id]
        console.log( user );
        res.end( JSON.stringify(user));
    });
@@ -4750,7 +4731,7 @@ var server = app.listen(8081, function () {
 接下来执行以下命令：
 
 ~~~
-$ node server.js 
+$ node server.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4781,7 +4762,7 @@ app.get('/deleteUser', function (req, res) {
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
        data = JSON.parse( data );
        delete data["user" + 2];
-       
+
        console.log( data );
        res.end( JSON.stringify(data));
    });
@@ -4799,7 +4780,7 @@ var server = app.listen(8081, function () {
 接下来执行以下命令：
 
 ~~~
-$ node server.js 
+$ node server.js
 应用实例，访问地址为 http://0.0.0.0:8081
 ~~~
 
@@ -4815,12 +4796,11 @@ $ node server.js
    { name: 'ramesh',
      password: 'password3',
      profession: 'clerk',
-     id: 3 } 
+     id: 3 }
 }
 ~~~
 
-===============================================================================
-===============================================================================
+---
 
 # 多进程
 我们都知道 Node.js 是以单线程的模式运行的，但它使用的是事件驱动来处理并发，这样有助于我们在多核 cpu 的系统上创建多个子进程，从而提高性能。
@@ -4902,19 +4882,19 @@ for(var i=0; i<3; i++) {
 执行以上代码，输出结果为：
 
 ~~~js
-$ node master.js 
+$ node master.js
 子进程已退出，退出码 0
 stdout: 进程 1 执行。
 
-stderr: 
+stderr:
 子进程已退出，退出码 0
 stdout: 进程 0 执行。
 
-stderr: 
+stderr:
 子进程已退出，退出码 0
 stdout: 进程 2 执行。
 
-stderr: 
+stderr:
 ~~~
 
 <hr>
@@ -4958,7 +4938,7 @@ master.js 文件代码：
 ~~~js
 const fs = require('fs');
 const child_process = require('child_process');
- 
+
 for(var i=0; i<3; i++) {
    var workerProcess = child_process.spawn('node', ['support.js', i]);
 
@@ -5033,9 +5013,9 @@ master.js 文件代码：
 ~~~js
 const fs = require('fs');
 const child_process = require('child_process');
- 
+
 for(var i=0; i<3; i++) {
-   var worker_process = child_process.fork("support.js", [i]);	
+   var worker_process = child_process.fork("support.js", [i]);
 
    worker_process.on('close', function (code) {
       console.log('子进程已退出，退出码 ' + code);
@@ -5046,7 +5026,7 @@ for(var i=0; i<3; i++) {
 执行以上代码，输出结果为：
 
 ~~~js
-$ node master.js 
+$ node master.js
 进程 0 执行。
 子进程已退出，退出码 0
 进程 1 执行。
@@ -5055,8 +5035,7 @@ $ node master.js
 子进程已退出，退出码 0
 ~~~
 
-===============================================================================
-===============================================================================
+---
 
 # JXcore 打包
 Node.js 是一个开放源代码、跨平台的、用于服务器端和网络应用的运行环境。
