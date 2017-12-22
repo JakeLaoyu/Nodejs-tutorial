@@ -13,7 +13,7 @@
     },
     "licenses": "MIT",
     "idoc": {
-        "theme": "handbook",
+        "theme": "default",
         "md": [
             "Nodejs教程.md",
             "安装配置.md",

@@ -4,21 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nodejs教程</title>
+        
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
 </head>
 <body>
-<div class="nav">
-    <div class="logo">
+<div class="navbar ">
+    <div class="container">
+        <div class="logo">
+            
+                Nodejs教程
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li class="active"><a href="index.html">Nodejs教程</a></li><li><a href="html/安装配置.html">安装配置</a></li><li><a href="html/关于.html">关于</a></li></ul>    
+        </div>
         
-            Nodejs教程
         
+        <div class="forkgithub"><a target="_blank" href="https://github.com/JakeLaoyu/Nodejs-tutorial.git">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
     </div>
-<ul><li class="active"><a href="index.html">Nodejs教程</a></li><li><a href="html/安装配置.html">安装配置</a></li><li><a href="html/关于.html">关于</a></li></ul></div>
+    
+</div>
 
 
-<div class="forkgithub"><a target="_blank" href="https://github.com/JakeLaoyu/Nodejs-tutorial.git"></a></div>
 
-<div class="warpper">
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>Nodejs教程</h1>
+        <p>nodejs教程</p>
+    </div>
+</div>
+
+
+<div class="container">
 
     <div class="page-toc">
         <ul><li><a href="#t0前言">前言</a><ul><li><a href="#t1谁适合阅读本教程？">谁适合阅读本教程？</a></li><li><a href="#t2学习本教程前你需要了解">学习本教程前你需要了解</a></li><li><a href="#t3使用的版本">使用的版本</a></li><li><a href="#t4第一个程序：Hello World！">第一个程序：Hello World！</a><ul><li><a href="#t5脚本模式">脚本模式</a></li><li><a href="#t6交互模式">交互模式</a></li></ul></li><li><a href="#t7Gif 实例演示">Gif 实例演示</a></li></ul></li><li><a href="#t8===============================================================================">===============================================================================</a></li><li><a href="#t9创建第一个应用">创建第一个应用</a><ul><li><a href="#t10创建应用">创建应用</a><ul><li><a href="#t11步骤一、引入 required 模块">步骤一、引入 required 模块</a></li><li><a href="#t12步骤二、创建服务器">步骤二、创建服务器</a></li></ul></li><li><a href="#t13Gif 实例演示">Gif 实例演示</a></li></ul></li><li><a href="#t14===============================================================================">===============================================================================</a></li><li><a href="#t15NPM 使用介绍">NPM 使用介绍</a><ul><li><a href="#t16使用 npm 命令安装模块">使用 npm 命令安装模块</a></li><li><a href="#t17全局安装与本地安装">全局安装与本地安装</a><ul><li><a href="#t18本地安装">本地安装</a></li><li><a href="#t19全局安装">全局安装</a></li></ul></li><li><a href="#t20使用 package.json">使用 package.json</a><ul><li><a href="#t21Package.json 属性说明">Package.json 属性说明</a></li></ul></li><li><a href="#t22卸载模块">卸载模块</a></li><li><a href="#t23更新模块">更新模块</a></li><li><a href="#t24搜索模块">搜索模块</a></li><li><a href="#t25创建模块">创建模块</a></li><li><a href="#t26版本号">版本号</a></li><li><a href="#t27NPM 常用命令">NPM 常用命令</a></li><li><a href="#t28使用淘宝 NPM 镜像">使用淘宝 NPM 镜像</a></li></ul></li><li><a href="#t29===============================================================================">===============================================================================</a></li><li><a href="#t30REPL(交互式解释器)">REPL(交互式解释器)</a><ul><li><a href="#t31简单的表达式运算">简单的表达式运算</a></li><li><a href="#t32使用变量">使用变量</a></li><li><a href="#t33多行表达式">多行表达式</a></li><li><a href="#t34下划线(_)变量">下划线(_)变量</a></li><li><a href="#t35REPL 命令">REPL 命令</a></li><li><a href="#t36停止 REPL">停止 REPL</a></li><li><a href="#t37Gif 实例演示">Gif 实例演示</a></li></ul></li><li><a href="#t38===============================================================================">===============================================================================</a></li><li><a href="#t39回调函数">回调函数</a><ul><li><a href="#t40阻塞代码实例">阻塞代码实例</a></li><li><a href="#t41非阻塞代码实例">非阻塞代码实例</a></li></ul></li><li><a href="#t42===============================================================================">===============================================================================</a></li><li><a href="#t43事件循环">事件循环</a><ul><li><a href="#t44事件驱动程序">事件驱动程序</a><ul><li><a href="#t45实例">实例</a></li></ul></li><li><a href="#t46Node 应用程序是如何工作的？">Node 应用程序是如何工作的？</a></li></ul></li><li><a href="#t47===============================================================================">===============================================================================</a></li><li><a href="#t48EventEmitter">EventEmitter</a><ul><li><a href="#t49EventEmitter 类">EventEmitter 类</a><ul><li><a href="#t50方法">方法</a></li><li><a href="#t51类方法">类方法</a></li><li><a href="#t52事件">事件</a></li><li><a href="#t53实例">实例</a></li></ul></li><li><a href="#t54error 事件">error 事件</a></li><li><a href="#t55继承 EventEmitter">继承 EventEmitter</a></li></ul></li><li><a href="#t56===============================================================================">===============================================================================</a></li><li><a href="#t57Buffer(缓冲区)">Buffer(缓冲区)</a><ul><li><a href="#t58创建 Buffer 类">创建 Buffer 类</a><ul><li><a href="#t59方法 1">方法 1</a></li><li><a href="#t60方法 2">方法 2</a></li><li><a href="#t61方法 3">方法 3</a></li></ul></li><li><a href="#t62写入缓冲区">写入缓冲区</a><ul><li><a href="#t63语法">语法</a></li><li><a href="#t64参数">参数</a></li><li><a href="#t65返回值">返回值</a></li><li><a href="#t66实例">实例</a></li></ul></li><li><a href="#t67从缓冲区读取数据">从缓冲区读取数据</a><ul><li><a href="#t68语法">语法</a></li><li><a href="#t69参数">参数</a></li><li><a href="#t70返回值">返回值</a></li><li><a href="#t71实例">实例</a></li></ul></li><li><a href="#t72将 Buffer 转换为 JSON 对象">将 Buffer 转换为 JSON 对象</a><ul><li><a href="#t73语法">语法</a></li><li><a href="#t74返回值">返回值</a></li><li><a href="#t75实例">实例</a></li></ul></li><li><a href="#t76缓冲区合并">缓冲区合并</a><ul><li><a href="#t77语法">语法</a></li><li><a href="#t78参数">参数</a></li><li><a href="#t79返回值">返回值</a></li><li><a href="#t80实例">实例</a></li></ul></li><li><a href="#t81缓冲区比较">缓冲区比较</a><ul><li><a href="#t82语法">语法</a></li><li><a href="#t83参数">参数</a></li><li><a href="#t84返回值">返回值</a></li><li><a href="#t85实例">实例</a></li></ul></li><li><a href="#t86拷贝缓冲区">拷贝缓冲区</a><ul><li><a href="#t87语法">语法</a></li><li><a href="#t88参数">参数</a></li><li><a href="#t89返回值">返回值</a></li><li><a href="#t90实例">实例</a></li></ul></li><li><a href="#t91缓冲区裁剪">缓冲区裁剪</a><ul><li><a href="#t92参数">参数</a></li><li><a href="#t93返回值">返回值</a></li><li><a href="#t94实例">实例</a></li></ul></li><li><a href="#t95缓冲区长度">缓冲区长度</a><ul><li><a href="#t96语法">语法</a></li><li><a href="#t97返回值">返回值</a></li><li><a href="#t98实例">实例</a></li></ul></li><li><a href="#t99方法参考手册">方法参考手册</a></li></ul></li><li><a href="#t100===============================================================================">===============================================================================</a></li><li><a href="#t101Stream(流)">Stream(流)</a><ul><li><a href="#t102从流中读取数据">从流中读取数据</a></li><li><a href="#t103写入流">写入流</a></li><li><a href="#t104管道流">管道流</a></li><li><a href="#t105链式流">链式流</a></li></ul></li><li><a href="#t106===============================================================================">===============================================================================</a></li><li><a href="#t107模块系统">模块系统</a><ul><li><a href="#t108创建模块">创建模块</a></li><li><a href="#t109服务端的模块放在哪里">服务端的模块放在哪里</a><ul><li><a href="#t110从文件模块缓存中加载">从文件模块缓存中加载</a></li><li><a href="#t111从原生模块加载">从原生模块加载</a></li><li><a href="#t112从文件加载">从文件加载</a></li></ul></li></ul></li><li><a href="#t113===============================================================================">===============================================================================</a></li><li><a href="#t114函数">函数</a><ul><li><a href="#t115匿名函数">匿名函数</a></li><li><a href="#t116函数传递是如何让HTTP服务器工作的">函数传递是如何让HTTP服务器工作的</a></li></ul></li><li><a href="#t117===============================================================================">===============================================================================</a></li><li><a href="#t118路由">路由</a></li><li><a href="#t119===============================================================================">===============================================================================</a></li><li><a href="#t120全局对象">全局对象</a><ul><li><a href="#t121全局对象与全局变量">全局对象与全局变量</a></li><li><a href="#t122__filename">__filename</a><ul><li><a href="#t123实例">实例</a></li></ul></li><li><a href="#t124__dirname">__dirname</a><ul><li><a href="#t125实例">实例</a></li></ul></li><li><a href="#t126setTimeout(cb, ms)">setTimeout(cb, ms)</a><ul><li><a href="#t127实例">实例</a></li></ul></li><li><a href="#t128clearTimeout(t)">clearTimeout(t)</a><ul><li><a href="#t129实例">实例</a></li></ul></li><li><a href="#t130setInterval(cb, ms)">setInterval(cb, ms)</a><ul><li><a href="#t131实例">实例</a></li></ul></li><li><a href="#t132console">console</a><ul><li><a href="#t133console 方法">console 方法</a></li><li><a href="#t134实例">实例</a></li></ul></li><li><a href="#t135process">process</a><ul><li><a href="#t136实例">实例</a></li><li><a href="#t137退出状态码">退出状态码</a></li></ul></li><li><a href="#t138Process 属性">Process 属性</a><ul><li><a href="#t139实例">实例</a></li><li><a href="#t140方法参考手册">方法参考手册</a></li><li><a href="#t141实例">实例</a></li></ul></li></ul></li><li><a href="#t142===============================================================================">===============================================================================</a></li><li><a href="#t143常用工具">常用工具</a><ul><li><a href="#t144util.inherits">util.inherits</a></li><li><a href="#t145util.inspect">util.inspect</a></li><li><a href="#t146util.isArray(object)">util.isArray(object)</a></li><li><a href="#t147util.isRegExp(object)">util.isRegExp(object)</a></li><li><a href="#t148util.isDate(object)">util.isDate(object)</a></li><li><a href="#t149util.isError(object)">util.isError(object)</a></li></ul></li><li><a href="#t150===============================================================================">===============================================================================</a></li><li><a href="#t151文件系统">文件系统</a><ul><li><a href="#t152异步和同步">异步和同步</a><ul><li><a href="#t153实例">实例</a></li></ul></li><li><a href="#t154打开文件">打开文件</a><ul><li><a href="#t155语法">语法</a></li><li><a href="#t156参数">参数</a></li><li><a href="#t157实例">实例</a></li></ul></li><li><a href="#t158获取文件信息">获取文件信息</a><ul><li><a href="#t159语法">语法</a></li><li><a href="#t160参数">参数</a></li><li><a href="#t161实例">实例</a></li></ul></li><li><a href="#t162写入文件">写入文件</a><ul><li><a href="#t163语法">语法</a></li><li><a href="#t164参数">参数</a></li><li><a href="#t165实例">实例</a></li></ul></li><li><a href="#t166读取文件">读取文件</a><ul><li><a href="#t167语法">语法</a></li><li><a href="#t168参数">参数</a></li><li><a href="#t169实例">实例</a></li></ul></li><li><a href="#t170关闭文件">关闭文件</a><ul><li><a href="#t171语法">语法</a></li><li><a href="#t172参数">参数</a></li><li><a href="#t173实例">实例</a></li></ul></li><li><a href="#t174截取文件">截取文件</a><ul><li><a href="#t175语法">语法</a></li><li><a href="#t176参数">参数</a></li><li><a href="#t177实例">实例</a></li></ul></li><li><a href="#t178删除文件">删除文件</a><ul><li><a href="#t179语法">语法</a></li><li><a href="#t180参数">参数</a></li><li><a href="#t181实例">实例</a></li></ul></li><li><a href="#t182创建目录">创建目录</a><ul><li><a href="#t183语法">语法</a></li><li><a href="#t184参数">参数</a></li><li><a href="#t185实例">实例</a></li></ul></li><li><a href="#t186读取目录">读取目录</a><ul><li><a href="#t187语法">语法</a></li><li><a href="#t188参数">参数</a></li><li><a href="#t189实例">实例</a></li></ul></li><li><a href="#t190删除目录">删除目录</a><ul><li><a href="#t191语法">语法</a></li><li><a href="#t192参数">参数</a></li><li><a href="#t193实例">实例</a></li></ul></li><li><a href="#t194文件模块方法参考手册">文件模块方法参考手册</a></li></ul></li><li><a href="#t195===============================================================================">===============================================================================</a></li><li><a href="#t196GET/POST请求">GET/POST请求</a><ul><li><a href="#t197获取GET请求内容">获取GET请求内容</a></li><li><a href="#t198获取POST请求内容">获取POST请求内容</a></li></ul></li><li><a href="#t199===============================================================================">===============================================================================</a></li><li><a href="#t200工具模块">工具模块</a><ul><li><a href="#t201OS 模块">OS 模块</a><ul><li><a href="#t202方法">方法</a></li><li><a href="#t203属性">属性</a></li><li><a href="#t204实例">实例</a></li></ul></li><li><a href="#t205Path 模块">Path 模块</a><ul><li><a href="#t206方法">方法</a></li><li><a href="#t207属性">属性</a></li><li><a href="#t208实例">实例</a></li></ul></li><li><a href="#t209Net 模块">Net 模块</a><ul><li><a href="#t210方法">方法</a></li><li><a href="#t211net.Server">net.Server</a><ul><li><a href="#t212事件">事件</a></li></ul></li><li><a href="#t213net.Socket">net.Socket</a><ul><li><a href="#t214事件">事件</a></li><li><a href="#t215属性">属性</a></li><li><a href="#t216方法">方法</a></li><li><a href="#t217实例">实例</a></li><li><a href="#t218Gif 实例演示">Gif 实例演示</a></li></ul></li></ul></li><li><a href="#t219DNS 模块">DNS 模块</a><ul><li><a href="#t220方法">方法</a></li><li><a href="#t221rrtypes">rrtypes</a></li><li><a href="#t222错误码">错误码</a></li><li><a href="#t223实例">实例</a></li></ul></li><li><a href="#t224Domain 模块">Domain 模块</a><ul><li><a href="#t225方法">方法</a></li><li><a href="#t226属性">属性</a></li><li><a href="#t227实例">实例</a></li></ul></li></ul></li><li><a href="#t228===============================================================================">===============================================================================</a></li><li><a href="#t229Web 模块">Web 模块</a><ul><li><a href="#t230什么是 Web 服务器？">什么是 Web 服务器？</a></li><li><a href="#t231Web 应用架构">Web 应用架构</a></li><li><a href="#t232使用 Node 创建 Web 服务器">使用 Node 创建 Web 服务器</a></li><li><a href="#t233Gif 实例演示">Gif 实例演示</a></li></ul></li><li><a href="#t234===============================================================================">===============================================================================</a></li><li><a href="#t235Express 框架">Express 框架</a><ul><li><a href="#t236Express 简介">Express 简介</a></li><li><a href="#t237安装 Express">安装 Express</a></li><li><a href="#t238第一个 Express 框架实例">第一个 Express 框架实例</a></li><li><a href="#t239请求和响应">请求和响应</a><ul><li><a href="#t240request 和 response 对象的具体介绍：">request 和 response 对象的具体介绍：</a></li></ul></li><li><a href="#t241路由">路由</a></li><li><a href="#t242静态文件">静态文件</a></li><li><a href="#t243GET 方法">GET 方法</a></li><li><a href="#t244POST 方法">POST 方法</a></li><li><a href="#t245文件上传">文件上传</a></li><li><a href="#t246Cookie 管理">Cookie 管理</a></li><li><a href="#t247相关资料">相关资料</a></li></ul></li><li><a href="#t248===============================================================================">===============================================================================</a></li><li><a href="#t249RESTful API">RESTful API</a><ul><li><a href="#t250什么是 REST？">什么是 REST？</a><ul><li><a href="#t251HTTP 方法">HTTP 方法</a></li></ul></li><li><a href="#t252RESTful Web Services">RESTful Web Services</a></li><li><a href="#t253创建 RESTful">创建 RESTful</a><ul><li><a href="#t254获取用户列表：">获取用户列表：</a></li><li><a href="#t255添加用户">添加用户</a></li><li><a href="#t256显示用户详情">显示用户详情</a></li><li><a href="#t257删除用户">删除用户</a></li></ul></li></ul></li><li><a href="#t258===============================================================================">===============================================================================</a></li><li><a href="#t259多进程">多进程</a><ul><li><a href="#t260exec() 方法">exec() 方法</a><ul><li><a href="#t261参数">参数</a></li><li><a href="#t262实例">实例</a></li></ul></li><li><a href="#t263spawn() 方法">spawn() 方法</a><ul><li><a href="#t264参数">参数</a></li><li><a href="#t265实例">实例</a></li></ul></li><li><a href="#t266fork 方法">fork 方法</a><ul><li><a href="#t267参数">参数</a></li></ul></li></ul></li><li><a href="#t268===============================================================================">===============================================================================</a></li><li><a href="#t269JXcore 打包">JXcore 打包</a><ul><li><a href="#t270JXcore 安装">JXcore 安装</a><ul><li><a href="#t271步骤1、下载">步骤1、下载</a></li></ul></li><li><a href="#t272包代码">包代码</a></li><li><a href="#t273载入 JX 文件">载入 JX 文件</a></li></ul></li></ul>
@@ -533,7 +556,7 @@ www.runoob.com
 <span class="hljs-literal">undefined</span>
 &gt; <span class="hljs-keyword">do</span> {
 ... x++;
-... <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;x: &quot;</span> + x);
+... console.log(<span class="hljs-string">&quot;x: &quot;</span> + x);
 ... } <span class="hljs-keyword">while</span> ( x &lt; <span class="hljs-number">5</span> );
 x: <span class="hljs-number">1</span>
 x: <span class="hljs-number">2</span>
@@ -2270,7 +2293,7 @@ darwin
 <pre><code class="lang-js">$ node main.js
 &#x5F53;&#x524D;&#x76EE;&#x5F55;: <span class="hljs-regexp">/web/</span>com/runoob/nodejs
 &#x5F53;&#x524D;&#x7248;&#x672C;: v0<span class="hljs-number">.10</span><span class="hljs-number">.36</span>
-{ rss: <span class="hljs-number">12541952</span>, heapTotal: <span class="hljs-number">4083456</span>, heapUsed: <span class="hljs-number">2157056</span> }
+{ <span class="hljs-attr">rss</span>: <span class="hljs-number">12541952</span>, <span class="hljs-attr">heapTotal</span>: <span class="hljs-number">4083456</span>, <span class="hljs-attr">heapUsed</span>: <span class="hljs-number">2157056</span> }
 </code></pre>
 <h1 id="t142===============================================================================">=============================================================================== <a href="#t142==============================================================================="> # </a></h1>
 <h1 id="t143&#x5E38;&#x7528;&#x5DE5;&#x5177;">&#x5E38;&#x7528;&#x5DE5;&#x5177; <a href="#t143&#x5E38;&#x7528;&#x5DE5;&#x5177;"> # </a></h1>
@@ -2308,9 +2331,9 @@ objSub.showName();
 <p>&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x7840;&#x5BF9;&#x8C61;Base &#x548C;&#x4E00;&#x4E2A;&#x7EE7;&#x627F;&#x81EA;Base &#x7684;Sub&#xFF0C;Base &#x6709;&#x4E09;&#x4E2A;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570; &#x5185;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;util.inherits &#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#x3002;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-js">base 
 Hello base 
-{ name: <span class="hljs-string">&apos;base&apos;</span>, base: <span class="hljs-number">1991</span>, sayHello: [<span class="hljs-built_in">Function</span>] } 
+{ <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;base&apos;</span>, <span class="hljs-attr">base</span>: <span class="hljs-number">1991</span>, <span class="hljs-attr">sayHello</span>: [<span class="hljs-built_in">Function</span>] } 
 sub 
-{ name: <span class="hljs-string">&apos;sub&apos;</span> }
+{ <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;sub&apos;</span> }
 </code></pre>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>Sub &#x4EC5;&#x4EC5;&#x7EE7;&#x627F;&#x4E86;Base &#x5728;&#x539F;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x521B;&#x9020;&#x7684; base &#x5C5E; &#x6027;&#x548C; sayHello &#x51FD;&#x6570;&#x90FD;&#x6CA1;&#x6709;&#x88AB; Sub &#x7EE7;&#x627F;&#x3002;</p>
 <p>&#x540C;&#x65F6;&#xFF0C;&#x5728;&#x539F;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x88AB;console.log &#x4F5C; &#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x8F93;&#x51FA;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x53BB;&#x6389; objSub.sayHello(); &#x8FD9;&#x884C;&#x7684;&#x6CE8;&#x91CA;&#xFF0C;&#x5C06;&#x4F1A;&#x770B;&#x5230;&#xFF1A;</p>
@@ -2344,16 +2367,16 @@ at EventEmitter._tickCallback (node.js:192:40)
 <span class="hljs-built_in">console</span>.log(util.inspect(obj, <span class="hljs-literal">true</span>));
 </code></pre>
 <p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x662F;&#xFF1A;</p>
-<pre><code class="lang-js">Person { name: <span class="hljs-string">&apos;byvoid&apos;</span>, toString: [<span class="hljs-built_in">Function</span>] }
+<pre><code class="lang-js">Person { <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;byvoid&apos;</span>, <span class="hljs-attr">toString</span>: [<span class="hljs-built_in">Function</span>] }
 Person {
-  name: <span class="hljs-string">&apos;byvoid&apos;</span>,
-  toString: 
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;byvoid&apos;</span>,
+  <span class="hljs-attr">toString</span>: 
    { [<span class="hljs-built_in">Function</span>]
      [length]: <span class="hljs-number">0</span>,
      [name]: <span class="hljs-string">&apos;&apos;</span>,
      [<span class="hljs-built_in">arguments</span>]: <span class="hljs-literal">null</span>,
      [caller]: <span class="hljs-literal">null</span>,
-     [prototype]: { [constructor]: [Circular] } } }
+     [prototype]: { [<span class="hljs-keyword">constructor</span>]: [Circular] } } }
 </code></pre>
 <hr>
 
@@ -2402,7 +2425,7 @@ util.isError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">E
   <span class="hljs-comment">// true</span>
 util.isError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>())
   <span class="hljs-comment">// true</span>
-util.isError({ name: <span class="hljs-string">&apos;Error&apos;</span>, message: <span class="hljs-string">&apos;an error occurred&apos;</span> })
+util.isError({ <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;Error&apos;</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&apos;an error occurred&apos;</span> })
   <span class="hljs-comment">// false</span>
 </code></pre>
 <p>&#x66F4;&#x591A;&#x8BE6;&#x60C5;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE; <a href="http://nodejs.org/api/util.html">http://nodejs.org/api/util.html</a> &#x4E86;&#x89E3;&#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#x3002;</p>
@@ -2617,19 +2640,19 @@ fs.stat(<span class="hljs-string">&apos;input.txt&apos;</span>, <span class="hlj
 <p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-js">$ node file.js 
 &#x51C6;&#x5907;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#xFF01;
-{ dev: <span class="hljs-number">16777220</span>,
-  mode: <span class="hljs-number">33188</span>,
-  nlink: <span class="hljs-number">1</span>,
-  uid: <span class="hljs-number">501</span>,
-  gid: <span class="hljs-number">20</span>,
-  rdev: <span class="hljs-number">0</span>,
-  blksize: <span class="hljs-number">4096</span>,
-  ino: <span class="hljs-number">40333161</span>,
-  size: <span class="hljs-number">61</span>,
-  blocks: <span class="hljs-number">8</span>,
-  atime: Mon Sep <span class="hljs-number">07</span> <span class="hljs-number">2015</span> <span class="hljs-number">17</span>:<span class="hljs-number">43</span>:<span class="hljs-number">55</span> GMT+<span class="hljs-number">0800</span> (CST),
-  mtime: Mon Sep <span class="hljs-number">07</span> <span class="hljs-number">2015</span> <span class="hljs-number">17</span>:<span class="hljs-number">22</span>:<span class="hljs-number">35</span> GMT+<span class="hljs-number">0800</span> (CST),
-  ctime: Mon Sep <span class="hljs-number">07</span> <span class="hljs-number">2015</span> <span class="hljs-number">17</span>:<span class="hljs-number">22</span>:<span class="hljs-number">35</span> GMT+<span class="hljs-number">0800</span> (CST) }
+{ <span class="hljs-attr">dev</span>: <span class="hljs-number">16777220</span>,
+  <span class="hljs-attr">mode</span>: <span class="hljs-number">33188</span>,
+  <span class="hljs-attr">nlink</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">uid</span>: <span class="hljs-number">501</span>,
+  <span class="hljs-attr">gid</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">rdev</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">blksize</span>: <span class="hljs-number">4096</span>,
+  <span class="hljs-attr">ino</span>: <span class="hljs-number">40333161</span>,
+  <span class="hljs-attr">size</span>: <span class="hljs-number">61</span>,
+  <span class="hljs-attr">blocks</span>: <span class="hljs-number">8</span>,
+  <span class="hljs-attr">atime</span>: Mon Sep <span class="hljs-number">07</span> <span class="hljs-number">2015</span> <span class="hljs-number">17</span>:<span class="hljs-number">43</span>:<span class="hljs-number">55</span> GMT+<span class="hljs-number">0800</span> (CST),
+  <span class="hljs-attr">mtime</span>: Mon Sep <span class="hljs-number">07</span> <span class="hljs-number">2015</span> <span class="hljs-number">17</span>:<span class="hljs-number">22</span>:<span class="hljs-number">35</span> GMT+<span class="hljs-number">0800</span> (CST),
+  <span class="hljs-attr">ctime</span>: Mon Sep <span class="hljs-number">07</span> <span class="hljs-number">2015</span> <span class="hljs-number">17</span>:<span class="hljs-number">22</span>:<span class="hljs-number">35</span> GMT+<span class="hljs-number">0800</span> (CST) }
 &#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x4FE1;&#x606F;&#x6210;&#x529F;&#xFF01;
 &#x662F;&#x5426;&#x4E3A;&#x6587;&#x4EF6;(isFile) ? <span class="hljs-literal">true</span>
 &#x662F;&#x5426;&#x4E3A;&#x76EE;&#x5F55;(isDirectory) ? <span class="hljs-literal">false</span>
@@ -3892,7 +3915,7 @@ server.listen(<span class="hljs-number">8080</span>, <span class="hljs-function"
 server is listening   # &#x670D;&#x52A1;&#x5DF2;&#x521B;&#x5EFA;&#x5E76;&#x76D1;&#x542C; 8080 &#x7AEF;&#x53E3;
 </code></pre><p>&#x65B0;&#x5F00;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;&#xFF0C;&#x521B;&#x5EFA; client.js &#x6587;&#x4EF6;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> net = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;net&apos;</span>);
-<span class="hljs-keyword">var</span> client = net.connect({port: <span class="hljs-number">8080</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-keyword">var</span> client = net.connect({<span class="hljs-attr">port</span>: <span class="hljs-number">8080</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF01;&apos;</span>);  
 });
 client.on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
@@ -4231,14 +4254,14 @@ http.createServer( <span class="hljs-function"><span class="hljs-keyword">functi
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Server running at http://127.0.0.1:8081/&apos;</span>);
 </code></pre>
 <p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; index.htm &#x6587;&#x4EF6;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Sample Page<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Sample Page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
 Hello World!
-<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <p>&#x6267;&#x884C; server.js &#x6587;&#x4EF6;&#xFF1A;</p>
 <pre><code class="lang-js">$ node server.js
@@ -4454,16 +4477,16 @@ app.get(<span class="hljs-string">&apos;/&apos;</span>, <span class="hljs-functi
 <h2 id="t243GET &#x65B9;&#x6CD5;">GET &#x65B9;&#x6CD5; <a href="#t243GET &#x65B9;&#x6CD5;"> # </a></h2>
 <p>&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6F14;&#x793A;&#x4E86;&#x5728;&#x8868;&#x5355;&#x4E2D;&#x901A;&#x8FC7; GET &#x65B9;&#x6CD5;&#x63D0;&#x4EA4;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; server.js &#x6587;&#x4EF6;&#x5185;&#x7684; process_get &#x8DEF;&#x7531;&#x5668;&#x6765;&#x5904;&#x7406;&#x8F93;&#x5165;&#xFF1A;</p>
 <p>index.html &#x6587;&#x4EF6;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">&quot;http://127.0.0.1:8081/process_get&quot;</span> <span class="hljs-attribute">method</span>=<span class="hljs-value">&quot;GET&quot;</span>&gt;</span>
-First Name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;first_name&quot;</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://127.0.0.1:8081/process_get&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;GET&quot;</span>&gt;</span>
+First Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;first_name&quot;</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
 
-Last Name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;last_name&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;submit&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;Submit&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+Last Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;last_name&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <p>server.js &#x6587;&#x4EF6;&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
@@ -4479,8 +4502,8 @@ app.get(<span class="hljs-string">&apos;/process_get&apos;</span>, <span class="
 
    <span class="hljs-comment">// &#x8F93;&#x51FA; JSON &#x683C;&#x5F0F;</span>
    response = {
-       first_name:req.query.first_name,
-       last_name:req.query.last_name
+       <span class="hljs-attr">first_name</span>:req.query.first_name,
+       <span class="hljs-attr">last_name</span>:req.query.last_name
    };
    <span class="hljs-built_in">console</span>.log(response);
    res.end(<span class="hljs-built_in">JSON</span>.stringify(response));
@@ -4507,16 +4530,16 @@ app.get(<span class="hljs-string">&apos;/process_get&apos;</span>, <span class="
 <h2 id="t244POST &#x65B9;&#x6CD5;">POST &#x65B9;&#x6CD5; <a href="#t244POST &#x65B9;&#x6CD5;"> # </a></h2>
 <p>&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6F14;&#x793A;&#x4E86;&#x5728;&#x8868;&#x5355;&#x4E2D;&#x901A;&#x8FC7; POST &#x65B9;&#x6CD5;&#x63D0;&#x4EA4;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; server.js &#x6587;&#x4EF6;&#x5185;&#x7684; process_post &#x8DEF;&#x7531;&#x5668;&#x6765;&#x5904;&#x7406;&#x8F93;&#x5165;&#xFF1A;</p>
 <p>index.htm &#x6587;&#x4EF6;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">&quot;http://127.0.0.1:8081/process_post&quot;</span> <span class="hljs-attribute">method</span>=<span class="hljs-value">&quot;POST&quot;</span>&gt;</span>
-First Name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;first_name&quot;</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://127.0.0.1:8081/process_post&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span>&gt;</span>
+First Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;first_name&quot;</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
 
-Last Name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;last_name&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;submit&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;Submit&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+Last Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;last_name&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <p>server.js &#x6587;&#x4EF6;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5982;&#x4E0B;:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
@@ -4524,7 +4547,7 @@ Last Name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <spa
 <span class="hljs-keyword">var</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;body-parser&apos;</span>);
 
 <span class="hljs-comment">// &#x521B;&#x5EFA; application/x-www-form-urlencoded &#x7F16;&#x7801;&#x89E3;&#x6790;</span>
-<span class="hljs-keyword">var</span> urlencodedParser = bodyParser.urlencoded({ extended: <span class="hljs-literal">false</span> })
+<span class="hljs-keyword">var</span> urlencodedParser = bodyParser.urlencoded({ <span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span> })
 
 app.use(express.static(<span class="hljs-string">&apos;public&apos;</span>));
 
@@ -4536,8 +4559,8 @@ app.post(<span class="hljs-string">&apos;/process_post&apos;</span>, urlencodedP
 
    <span class="hljs-comment">// &#x8F93;&#x51FA; JSON &#x683C;&#x5F0F;</span>
    response = {
-       first_name:req.body.first_name,
-       last_name:req.body.last_name
+       <span class="hljs-attr">first_name</span>:req.body.first_name,
+       <span class="hljs-attr">last_name</span>:req.body.last_name
    };
    <span class="hljs-built_in">console</span>.log(response);
    res.end(<span class="hljs-built_in">JSON</span>.stringify(response));
@@ -4564,20 +4587,20 @@ app.post(<span class="hljs-string">&apos;/process_post&apos;</span>, urlencodedP
 <h2 id="t245&#x6587;&#x4EF6;&#x4E0A;&#x4F20;">&#x6587;&#x4EF6;&#x4E0A;&#x4F20; <a href="#t245&#x6587;&#x4EF6;&#x4E0A;&#x4F20;"> # </a></h2>
 <p>&#x4EE5;&#x4E0B;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x8868;&#x5355;&#xFF0C;&#x4F7F;&#x7528; POST &#x65B9;&#x6CD5;&#xFF0C;&#x8868;&#x5355; enctype &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A; multipart/form-data&#x3002;</p>
 <p>index.htm &#x6587;&#x4EF6;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x8868;&#x5355;<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#xFF1A;<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
-&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;: <span class="hljs-tag">&lt;<span class="hljs-title">br</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">&quot;/file_upload&quot;</span> <span class="hljs-attribute">method</span>=<span class="hljs-value">&quot;post&quot;</span> <span class="hljs-attribute">enctype</span>=<span class="hljs-value">&quot;multipart/form-data&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;file&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;image&quot;</span> <span class="hljs-attribute">size</span>=<span class="hljs-value">&quot;50&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">br</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;submit&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x8868;&#x5355;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#xFF1A;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;: <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/file_upload&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;image&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;50&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <p>server.js &#x6587;&#x4EF6;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5982;&#x4E0B;:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
@@ -4588,8 +4611,8 @@ app.post(<span class="hljs-string">&apos;/process_post&apos;</span>, urlencodedP
 <span class="hljs-keyword">var</span> multer  = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;multer&apos;</span>);
 
 app.use(express.static(<span class="hljs-string">&apos;public&apos;</span>));
-app.use(bodyParser.urlencoded({ extended: <span class="hljs-literal">false</span> }));
-app.use(multer({ dest: <span class="hljs-string">&apos;/tmp/&apos;</span>}).array(<span class="hljs-string">&apos;image&apos;</span>));
+app.use(bodyParser.urlencoded({ <span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span> }));
+app.use(multer({ <span class="hljs-attr">dest</span>: <span class="hljs-string">&apos;/tmp/&apos;</span>}).array(<span class="hljs-string">&apos;image&apos;</span>));
 
 app.get(<span class="hljs-string">&apos;/index.htm&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
    res.sendFile( __dirname + <span class="hljs-string">&quot;/&quot;</span> + <span class="hljs-string">&quot;index.htm&quot;</span> );
@@ -4606,8 +4629,8 @@ app.post(<span class="hljs-string">&apos;/file_upload&apos;</span>, <span class=
               <span class="hljs-built_in">console</span>.log( err );
          }<span class="hljs-keyword">else</span>{
                response = {
-                   message:<span class="hljs-string">&apos;File uploaded successfully&apos;</span>, 
-                   filename:req.files[<span class="hljs-number">0</span>].originalname
+                   <span class="hljs-attr">message</span>:<span class="hljs-string">&apos;File uploaded successfully&apos;</span>, 
+                   <span class="hljs-attr">filename</span>:req.files[<span class="hljs-number">0</span>].originalname
               };
           }
           <span class="hljs-built_in">console</span>.log( response );
@@ -4831,26 +4854,26 @@ app.get(<span class="hljs-string">&apos;/addUser&apos;</span>, <span class="hljs
 <pre><code>$ node server.js 
 &#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#xFF0C;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#x4E3A; http://0.0.0.0:8081
 </code></pre><p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE; <a href="http://127.0.0.1:8081/addUser&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;">http://127.0.0.1:8081/addUser&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</a></p>
-<pre><code class="lang-js">{ user1:
-   { name: <span class="hljs-string">&apos;mahesh&apos;</span>,
-     password: <span class="hljs-string">&apos;password1&apos;</span>,
-     profession: <span class="hljs-string">&apos;teacher&apos;</span>,
-     id: <span class="hljs-number">1</span> },
-  user2:
-   { name: <span class="hljs-string">&apos;suresh&apos;</span>,
-     password: <span class="hljs-string">&apos;password2&apos;</span>,
-     profession: <span class="hljs-string">&apos;librarian&apos;</span>,
-     id: <span class="hljs-number">2</span> },
-  user3:
-   { name: <span class="hljs-string">&apos;ramesh&apos;</span>,
-     password: <span class="hljs-string">&apos;password3&apos;</span>,
-     profession: <span class="hljs-string">&apos;clerk&apos;</span>,
-     id: <span class="hljs-number">3</span> },
-  user4:
-   { name: <span class="hljs-string">&apos;mohit&apos;</span>,
-     password: <span class="hljs-string">&apos;password4&apos;</span>,
-     profession: <span class="hljs-string">&apos;teacher&apos;</span>,
-     id: <span class="hljs-number">4</span> } 
+<pre><code class="lang-js">{ <span class="hljs-attr">user1</span>:
+   { <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;mahesh&apos;</span>,
+     <span class="hljs-attr">password</span>: <span class="hljs-string">&apos;password1&apos;</span>,
+     <span class="hljs-attr">profession</span>: <span class="hljs-string">&apos;teacher&apos;</span>,
+     <span class="hljs-attr">id</span>: <span class="hljs-number">1</span> },
+  <span class="hljs-attr">user2</span>:
+   { <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;suresh&apos;</span>,
+     <span class="hljs-attr">password</span>: <span class="hljs-string">&apos;password2&apos;</span>,
+     <span class="hljs-attr">profession</span>: <span class="hljs-string">&apos;librarian&apos;</span>,
+     <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> },
+  <span class="hljs-attr">user3</span>:
+   { <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;ramesh&apos;</span>,
+     <span class="hljs-attr">password</span>: <span class="hljs-string">&apos;password3&apos;</span>,
+     <span class="hljs-attr">profession</span>: <span class="hljs-string">&apos;clerk&apos;</span>,
+     <span class="hljs-attr">id</span>: <span class="hljs-number">3</span> },
+  <span class="hljs-attr">user4</span>:
+   { <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;mohit&apos;</span>,
+     <span class="hljs-attr">password</span>: <span class="hljs-string">&apos;password4&apos;</span>,
+     <span class="hljs-attr">profession</span>: <span class="hljs-string">&apos;teacher&apos;</span>,
+     <span class="hljs-attr">id</span>: <span class="hljs-number">4</span> } 
 }
 </code></pre>
 <h3 id="t256&#x663E;&#x793A;&#x7528;&#x6237;&#x8BE6;&#x60C5;">&#x663E;&#x793A;&#x7528;&#x6237;&#x8BE6;&#x60C5; <a href="#t256&#x663E;&#x793A;&#x7528;&#x6237;&#x8BE6;&#x60C5;"> # </a></h3>
@@ -4919,16 +4942,16 @@ app.get(<span class="hljs-string">&apos;/deleteUser&apos;</span>, <span class="h
 <pre><code>$ node server.js 
 &#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#xFF0C;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#x4E3A; http://0.0.0.0:8081
 </code></pre><p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE; <a href="http://127.0.0.1:8081/deleteUser&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;">http://127.0.0.1:8081/deleteUser&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</a></p>
-<pre><code class="lang-js">{ user1:
-   { name: <span class="hljs-string">&apos;mahesh&apos;</span>,
-     password: <span class="hljs-string">&apos;password1&apos;</span>,
-     profession: <span class="hljs-string">&apos;teacher&apos;</span>,
-     id: <span class="hljs-number">1</span> },
-  user3:
-   { name: <span class="hljs-string">&apos;ramesh&apos;</span>,
-     password: <span class="hljs-string">&apos;password3&apos;</span>,
-     profession: <span class="hljs-string">&apos;clerk&apos;</span>,
-     id: <span class="hljs-number">3</span> } 
+<pre><code class="lang-js">{ <span class="hljs-attr">user1</span>:
+   { <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;mahesh&apos;</span>,
+     <span class="hljs-attr">password</span>: <span class="hljs-string">&apos;password1&apos;</span>,
+     <span class="hljs-attr">profession</span>: <span class="hljs-string">&apos;teacher&apos;</span>,
+     <span class="hljs-attr">id</span>: <span class="hljs-number">1</span> },
+  <span class="hljs-attr">user3</span>:
+   { <span class="hljs-attr">name</span>: <span class="hljs-string">&apos;ramesh&apos;</span>,
+     <span class="hljs-attr">password</span>: <span class="hljs-string">&apos;password3&apos;</span>,
+     <span class="hljs-attr">profession</span>: <span class="hljs-string">&apos;clerk&apos;</span>,
+     <span class="hljs-attr">id</span>: <span class="hljs-number">3</span> } 
 }
 </code></pre>
 <h1 id="t258===============================================================================">=============================================================================== <a href="#t258==============================================================================="> # </a></h1>
@@ -5161,7 +5184,7 @@ drwxr-xr-x  <span class="hljs-number">2</span> root root  <span class="hljs-numb
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>
-    
+
 </div>
 
 
