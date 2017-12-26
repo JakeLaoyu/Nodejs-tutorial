@@ -5197,8 +5197,6 @@ drwxr-xr-x  <span class="hljs-number">2</span> root root  <span class="hljs-numb
     var pageTocHeight = document.body.clientHeight
     var pageTocLeft = pageToc.offset().left
 
-    console.log('pageTocHeight: '+pageTocHeight);
-    
     handleScroll()
     $(window)
     .on('scroll',handleScroll)
@@ -5210,7 +5208,7 @@ drwxr-xr-x  <span class="hljs-number">2</span> root root  <span class="hljs-numb
         throttle(handleScroll,500,1000)
     })
     function handleScroll() {
-        var scrollTop = $(window).scrollTop()        
+        var scrollTop = $(window).scrollTop()
         if (scrollTop >= pageTocTop-30) {
             pageToc.css({
                 position:'fixed',
@@ -5235,10 +5233,6 @@ drwxr-xr-x  <span class="hljs-number">2</span> root root  <span class="hljs-numb
         id ? $('a[href="#'+id+'"]').addClass('active') : pageToc.find('a').first().addClass('active')
     }
 
-    // 简单的节流函数
-    //fun 要执行的函数
-    //delay 延迟
-    //time  在time时间内必须执行一次
     function throttle(fun, delay, time) {
         var timeout,
             startTime = new Date();
