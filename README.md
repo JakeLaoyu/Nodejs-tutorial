@@ -25,7 +25,7 @@ Node.js 是运行在服务端的 JavaScript，如果你熟悉Javascript，那么
 
 ## 使用的版本
 我们可以使用以下命令来查看当前的 Node 版本：
-~~~js
+~~~
 $ node -v
 v4.4.3
 ~~~
@@ -48,7 +48,7 @@ node helloworld.js
 
 ### 交互模式
 打开终端，键入node进入命令交互模式，可以输入一条代码语句后立即执行并显示结果，例如：
-~~~
+~~~js
 $ node
 > console.log('Hello World!');
 Hello World!
@@ -82,7 +82,7 @@ Hello World!
 ### 步骤一、引入 required 模块
 我们使用 require 指令来载入 http 模块，并将实例化的 HTTP 赋值给变量 http，实例如下:
 
-~~~
+~~~js
 var http = require("http");
 ~~~
 
@@ -92,7 +92,7 @@ var http = require("http");
 
 实例如下，在你项目的根目录下创建一个叫 server.js 的文件，并写入以下代码：
 
-~~~
+~~~js
 var http = require('http');
 
 http.createServer(function (request, response) {
@@ -114,7 +114,7 @@ console.log('Server running at http://127.0.0.1:8888/');
 
 使用 node 命令执行以上的代码：
 
-~~~
+~~~js
 node server.js
 Server running at http://127.0.0.1:8888/
 ~~~
@@ -144,14 +144,14 @@ NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署�
 
 由于新版的nodejs已经集成了npm，所以之前npm也一并安装好了。同样可以通过输入 "npm -v" 来测试是否成功安装。命令如下，出现版本提示表示安装成功:
 
-~~~
+~~~js
 $ npm -v
 2.3.0
 ~~~
 
 如果你安装的是旧版本的 npm，可以很容易得通过 npm 命令来升级，命令如下：
 
-~~~
+~~~js
 $ sudo npm install npm -g
 /usr/local/bin/npm -> /usr/local/lib/node_modules/npm/bin/npm-cli.js
 npm@2.14.2 /usr/local/lib/node_modules/npm
@@ -159,7 +159,7 @@ npm@2.14.2 /usr/local/lib/node_modules/npm
 
 如果是 Window 系统使用以下命令即可：
 
-~~~
+~~~js
 npm install npm -g
 ~~~
 
@@ -180,7 +180,7 @@ $ npm install express
 
 安装好之后，express 包就放在了工程目录下的 node_modules 目录中，因此在代码中只需要通过 require('express') 的方式就好，无需指定第三方包路径。
 
-~~~
+~~~js
 var express = require('express');
 ~~~
 
@@ -264,7 +264,7 @@ $ npm ls -g
 ## 使用 package.json
 package.json 位于模块的目录下，用于定义包的属性。接下来让我们来看下 express 包的 package.json 文件，位于 node_modules/express/package.json 内容：
 
-~~~
+~~~json
 {
   "name": "express",
   "description": "Fast, unopinionated, minimalist web framework",
@@ -482,7 +482,7 @@ $ npm search express
 ## 创建模块
 创建模块，package.json 文件是必不可少的。我们可以使用 NPM 生成 package.json 文件，生成的文件包含了基本的结果。
 
-~~~
+~~~js
 $ npm init
 This utility will walk you through creating a package.json file.
 It only covers the most common items, and tries to guess sensible defaults.
