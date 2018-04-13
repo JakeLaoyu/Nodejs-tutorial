@@ -2,7 +2,7 @@
 docute.init({
     title: 'Nodejs 教程',
     repo: 'JakeLaoyu/Nodejs-tutorial',
-    'edit-link': 'https://github.com/JakeLaoyu/Nodejs-tutorial/tree/master',
+    'edit-link': 'https://github.com/JakeLaoyu/Nodejs-tutorial',
     nav: {
         default: [
             {
