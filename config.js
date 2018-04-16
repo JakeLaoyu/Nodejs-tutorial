@@ -18,10 +18,10 @@ docute.init({
     },
     plugins: [
         docsearch({
-            apiKey: '',
-            indexName: 'Nodejs教程',
+            apiKey: 'de5f339e2322b4fba46c8d18533460a1',
+            indexName: 'jakeyu',
             tags: ['zh-Hans'],
-            url: 'http://nodejs.jakeyu.top/'
+            url: 'https://nodejs.jakeyu.top/'
         }),
     ]
 });
