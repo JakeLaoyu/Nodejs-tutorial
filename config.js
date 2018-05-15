@@ -20,7 +20,8 @@ docute.init({
         docsearch({
             apiKey: 'de5f339e2322b4fba46c8d18533460a1',
             indexName: 'jakeyu',
-            url: 'https://nodejs.jakeyu.top'
+            url: 'https://nodejs.jakeyu.top',
+            tags: ['english', 'zh-Hans', 'zh-Hant', 'ja']
         }),
     ]
 });
