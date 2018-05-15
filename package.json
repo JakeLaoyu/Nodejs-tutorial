@@ -1,0 +1,29 @@
+{
+    "name": "Nodejs-Tutorial",
+    "version": "2.0.0",
+    "description": "Nodejs 中文基础教程",
+    "main": "config.js",
+    "dependencies": {
+        "vuepress": "0.8.4"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "dev": "vuepress dev docs",
+        "build": "vuepress build docs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JakeLaoyu/Nodejs-tutorial.git"
+    },
+    "keywords": [
+        "Nodejs",
+        "教程",
+        "中文"
+    ],
+    "author": "Jake <e@jakeyu.top> (https://github.com/JakeLaoyu)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/JakeLaoyu/Nodejs-tutorial/issues"
+    },
+    "homepage": "https://github.com/JakeLaoyu/Nodejs-tutorial#readme"
+}

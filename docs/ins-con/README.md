@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # 安装配置
 本章节我们将向大家介绍在window和Linux上安装Node.js的方法。
 
@@ -11,7 +15,7 @@ Node.js安装包及源码下载地址为：<https://nodejs.org/en/download/>。
 
 Node.js 历史版本下载地址：<https://nodejs.org/dist/>
 
-**注意：**Linux上安装Node.js需要安装Python 2.6 或 2.7 ，不建议安装Python 3.0以上版本。
+**注意：** Linux上安装Node.js需要安装Python 2.6 或 2.7 ，不建议安装Python 3.0以上版本。
 
 <hr>
 
