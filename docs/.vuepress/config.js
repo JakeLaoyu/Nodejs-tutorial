@@ -8,9 +8,6 @@ module.exports = {
         editLinks: true,
         editLinkText: '帮助改善此页面！',
         docsDir: 'docs',
-        head: [
-            ['link', { rel: 'icon', href: '/favicon.ico' }]
-        ],
         nav: [{
                 text: '主页',
                 link: '/'
